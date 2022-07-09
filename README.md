@@ -25,3 +25,29 @@ AS A user with a vehicle or extra time
 I WANT to be able to offer my services to provide moving help
 SO THAT I can earn extra money and help out others
 ```
+
+## Functions
+- Log In
+
+- Profiles for users and movers
+
+- Renter Form: 
+    - Name
+    - Gender
+    - Budget
+    - Moving Date
+    - Address
+    - Car: yes or no
+    - Apartment Size
+
+- Mover Form:
+    - Name
+    - Gender
+    - Price
+    - Car: yes or no
+
+- Chat Function
+
+- Reviews 
+
+- 
