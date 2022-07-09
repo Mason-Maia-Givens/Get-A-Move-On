@@ -19,6 +19,9 @@ AS A person looking to move
 I WANT to find a local person who is offering moving help 
 SO THAT I can avoid having to use a large moving company
 ```
+
+```
 AS A user with a vehicle or extra time 
 I WANT to be able to offer my services to provide moving help
 SO THAT I can earn extra money and help out others
+```
