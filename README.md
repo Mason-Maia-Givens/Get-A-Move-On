@@ -1,30 +1,41 @@
-# Get A Move On
+# Get A Move On!
 
 ## Description
-A peer-to-peer application to enable you to crowdsource moving help from other members of your community or to help you earn a little extra money by helping others by providing moving help.
-
-
-## Motivation
-
+An application to enable you to crowdsource moving help from other members of your community or to help you earn a little extra money by helping others by providing moving help within 50 miles of my current address.
 
 ## Table of Contents
 
 Below is a table of contents to make it easy for users to find what they need.
 
 - [User Story](#UserStory)
+- [Technologies](#technologies-used)
+- [Functions](#functions)
+- [GitHub](#github)
+- [Heroku](#heroku)
+- [Collaborators](#collaborators)
 
-## UserStory
+## User Story
 ```
 AS A person looking to move
-I WANT to find a local person who is offering moving help 
+I WANT to find a person who is offering moving help within 50 miles of my current address
 SO THAT I can avoid having to use a large moving company
 ```
 
 ```
 AS A user with a vehicle or extra time 
-I WANT to be able to offer my services to provide moving help
+I WANT to be able to offer my services to provide moving help 
 SO THAT I can earn extra money and help out others
 ```
+
+## Technologies Used 
+- Node.JS
+- Heroku
+- MySQL
+- Tailwind CSS
+- Tailwind Play
+- JQuery
+- NPM
+- Chat app TBD
 
 ## Functions
 - Log In
@@ -37,17 +48,38 @@ SO THAT I can earn extra money and help out others
     - Budget
     - Moving Date
     - Address
-    - Car: yes or no
+    - Vehicle: yes or no
     - Apartment Size
+    - Accessibility Options
 
 - Mover Form:
     - Name
     - Gender
-    - Price
-    - Car: yes or no
+    - Vehicle: yes or no
+    - Vehicle Make and Model
+    - ID verification
 
-- Chat Function
+- Client will be able to select a mover they prefer and mover will be able to confirm or deny the job.
+
+- Chat Function to connect client with mover and discuss details prior to the move. 
 
 - Reviews 
 
-- 
+- Potential features: 
+	- Calendar for upcoming moves 
+    - Move history 
+	- Start and Stop move 
+    - Map 
+	- Reporting conduct  // instant shut down	
+    - Admin support in case of emergency 
+
+## Github
+https://github.com/Mason-Maia-Givens/Get-A-Move-On
+
+## Heroku 
+https://arcane-bayou-61042.herokuapp.com/
+
+## Collaborators 
+Mason McCoy
+Maia Davis
+Givens 
