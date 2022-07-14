@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS moveon_db;
+CREATE DATABASE moveon_db;
