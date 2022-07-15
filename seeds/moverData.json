@@ -1,0 +1,16 @@
+[
+    {
+        "first_name": "Ted",
+        "last_name": "Bird",
+        "gender": "M",
+        "email": "fakeEmail3@gmail.com",
+        "password": "an0th3rfak3passw0rd"
+    },
+    {
+        "first_name": "Tina",
+        "last_name": "Hawk",
+        "gender": "F",
+        "email": "fakeEmail4@gmail.com",
+        "password": "this!s@f@kep33sword"
+    }
+]

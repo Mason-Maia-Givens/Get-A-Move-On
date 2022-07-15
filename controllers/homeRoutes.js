@@ -14,14 +14,26 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-// Render client dashboard
-router.get('/clientdash', (req, res) => {
-  res.render('clientdash');
+router.get('/signup', (req, res) => {
+  try {
+    res.render('signupinfo');
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
+// Render client dashboard
+// router.get('/clientdash', (req, res) => {
+//   res.render('clientdash');
+// });
+
 // Render mover dashboard
-router.get('/moverdash', (req, res) => {
-  res.render('moverdash');
+router.get('/dashboard', (req, res) => {
+  try {
+    res.render('mover-dash');
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 
