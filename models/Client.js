@@ -2,19 +2,27 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const bcrypt = require('bcrypt');
 
-class User extends Model {}
+class Client extends Model {}
 
-User.init(
+Client.init(
     {
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
+            references: {
+                model: 'user',
+                key: 'id',
+            },
         },
         name: {
             type: DataTypes.STRING,
             allowNull: false,
+            references: {
+                model: 'user',
+                key: 'name',
+            },
         },
         email: {
             type: DataTypes.STRING,
@@ -23,6 +31,10 @@ User.init(
             validate: {
                 isEmail: true,
             },
+            references: {
+                model: 'user',
+                key: 'email',
+            }
         },
         password: {
             type: DataTypes.STRING,
@@ -30,16 +42,33 @@ User.init(
             validate: {
                 len: [8],
             },
+            references: {
+                model: 'user',
+                key: 'password'
+            },
         },
         gender: {
             type: DataTypes.STRING,
             allowNull: false,
+            references: {
+                model: 'user',
+                key: 'gender'
+            },
         },
+        current_address: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        //cc_info: {
+        //   type: DataTypes.INTEGER,
+        //   allowNull: false
+        //}
     },
     {
         hooks: {
             beforeCreate: async (newUserData) => {
                 newUserData.password = await bcrypt.hash(newUserData.password, 10);
+                //newUserData.cc_info = await bcrypt.hash(newUserData.cc_info, 10);
                 return newUserData;
             },
             beforeUpdate: async (updatedUserData) => {
@@ -51,8 +80,8 @@ User.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'user',
-    }
+        modelName: 'client',
+    },
 );
 
-module.exports = User;
+module.exports = Client;
