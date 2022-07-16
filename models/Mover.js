@@ -17,12 +17,21 @@ Mover.init(
                 key: 'id',
             },
         },
-        name: {
+
+        first_name: {
             type: DataTypes.STRING,
             allowNull: false,
             references: {
                 model: 'user',
-                key: 'name',
+                key: 'first_name',
+            },
+        },
+        last_name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            references: {
+                model: 'user',
+                key: 'last_name',
             },
         },
         email: {
@@ -59,6 +68,10 @@ Mover.init(
         current_address: {
             type: DataTypes.STRING,
             allowNull: false,
+            references: {
+                model: 'user',
+                key: 'current_address'
+            },
         },
         price_per_hour: {
             type: DataTypes.INTEGER,

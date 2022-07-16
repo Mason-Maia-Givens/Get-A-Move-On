@@ -78,5 +78,3 @@ Move.init(
 );
 
 module.exports = Move;
-
-

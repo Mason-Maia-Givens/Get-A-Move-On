@@ -16,12 +16,21 @@ Client.init(
                 key: 'id',
             },
         },
-        name: {
+
+        first_name: {
             type: DataTypes.STRING,
             allowNull: false,
             references: {
                 model: 'user',
-                key: 'name',
+                key: 'first_name',
+            },
+        },
+        last_name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            references: {
+                model: 'user',
+                key: 'last_name',
             },
         },
         email: {
@@ -58,6 +67,10 @@ Client.init(
         current_address: {
             type: DataTypes.STRING,
             allowNull: false,
+            references: {
+                model: 'user',
+                key: 'current_address'
+            },
         },
         //cc_info: {
         //   type: DataTypes.INTEGER,
@@ -85,3 +98,4 @@ Client.init(
 );
 
 module.exports = Client;
+

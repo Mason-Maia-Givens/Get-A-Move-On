@@ -1,0 +1,18 @@
+[
+    {
+        "first_name": "John",
+        "last_name": "Smith",
+        "email": "fakeEmail1@gmail.com",
+        "password": "afakepassword",
+        "gender": "M",
+        "current_address": "3333 Faux Way"
+    },
+    {
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "email": "fakeEmail2@gmail.com",
+        "password": "anotherfakepassword",
+        "gender": "F",
+        "current_address": "4444 Isn't Real Alley"
+    }
+]
