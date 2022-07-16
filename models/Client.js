@@ -16,6 +16,7 @@ Client.init(
                 key: 'id',
             },
         },
+
         first_name: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -91,9 +92,10 @@ Client.init(
         sequelize,
         timestamps: false,
         freezeTableName: true,
-        underscored: false,
+        underscored: true,
         modelName: 'client',
     },
 );
 
 module.exports = Client;
+

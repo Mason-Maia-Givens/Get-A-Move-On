@@ -1,3 +1,4 @@
+
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const bcrypt = require('bcrypt');
@@ -16,6 +17,7 @@ Mover.init(
                 key: 'id',
             },
         },
+
         first_name: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -118,3 +120,4 @@ Mover.init(
 );
 
 module.exports = Mover;
+

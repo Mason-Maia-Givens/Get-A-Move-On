@@ -13,8 +13,6 @@ Mover.hasMany(Move, {
     onDelete: 'CASCADE',
 });
 
-
-
 Client.belongsTo(Move, {
     foreignKey: 'client_id',
 });
@@ -22,8 +20,6 @@ Client.belongsTo(Move, {
 Mover.belongsTo(Move, {
     foreignKey: 'mover_id',
 }); 
-
-
 
 Move.hasOne(Client, {
     as: 'client',
@@ -55,4 +51,5 @@ Mover.belongsTo(User, {
     foreignKey: 'user_id'
 });
 
-module.exports = { User };
+
+
