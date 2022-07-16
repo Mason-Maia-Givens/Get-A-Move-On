@@ -12,7 +12,7 @@ Move.init(
             autoIncrement: true,
         },
         client_id: {
-            type: DataTypes.STRING,
+            type: DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: 'client',
@@ -20,7 +20,7 @@ Move.init(
             }
         },
         mover_id: {
-            type: DataTypes.STRING,
+            type: DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: 'mover',
@@ -37,10 +37,6 @@ Move.init(
         price_per_hour: {
             type: DataTypes.DECIMAL(10, 2),
             allowNull: false, 
-            references: {
-                model: 'mover',
-                key: 'price_per_hour',
-            },   
         },
         big_items: {
             type: DataTypes.INTEGER,
@@ -58,15 +54,6 @@ Move.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        storage: {
-            type: DataTypes.BOOLEAN,
-            allowNull: false,
-        },
-    // estimate of big items
-    // estimate of small items
-    // stairs or elevator
-    // end address
-    // separate storage?  
     },
     {
         sequelize, 

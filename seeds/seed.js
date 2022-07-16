@@ -1,22 +1,25 @@
 const sequelize = require('../config/connection');
-const { User, Client, Mover } = require('../models');
+const { Client, Mover, Move } = require('../models');
 
-const userSeedData = require('./userData.json');
+const moveSeedData = require('./moveData.json');
 const clientSeedData = require('./clientData.json');
 const moverSeedData = require('./moverData.json');
 
 const seedDatabase = async () => {
-    try {
-        await sequelize.sync({ force: true });
+    await sequelize.sync({ force: true });    
+        await Mover.bulkCreate(moverSeedData,{
+            individualHooks: true,
+            returning: true,
+        }); 
+        await Client.bulkCreate(clientSeedData,{
+            individualHooks: true,
+            returning: true,
+        }); 
+        await Move.bulkCreate(moveSeedData, {
+            returning: true,
+        });
 
-        // await User.bulkCreate(userSeedData);
-        await Client.bulkCreate(clientSeedData);
-        await Mover.bulkCreate(moverSeedData);
-      
         process.exit(0);
-    } catch (err) {
-        console.log(err);
-    }
 };
 
 seedDatabase();
