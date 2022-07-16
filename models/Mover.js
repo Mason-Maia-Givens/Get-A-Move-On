@@ -12,27 +12,15 @@ Mover.init(
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
-            references: {
-                model: 'user',
-                key: 'id',
-            },
         },
 
         first_name: {
             type: DataTypes.STRING,
             allowNull: false,
-            references: {
-                model: 'user',
-                key: 'first_name',
-            },
         },
         last_name: {
             type: DataTypes.STRING,
             allowNull: false,
-            references: {
-                model: 'user',
-                key: 'last_name',
-            },
         },
         email: {
             type: DataTypes.STRING,
@@ -41,10 +29,6 @@ Mover.init(
             validate: {
                 isEmail: true,
             },
-            references: {
-                model: 'user',
-                key: 'email',
-            }
         },
         password: {
             type: DataTypes.STRING,
@@ -52,29 +36,17 @@ Mover.init(
             validate: {
                 len: [8],
             },
-            references: {
-                model: 'user',
-                key: 'password'
-            },
         },
         gender: {
             type: DataTypes.STRING,
             allowNull: false,
-            references: {
-                model: 'user',
-                key: 'gender'
-            },
         },
         current_address: {
             type: DataTypes.STRING,
             allowNull: false,
-            references: {
-                model: 'user',
-                key: 'current_address'
-            },
         },
         price_per_hour: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.DECIMAL(10,2),
             allowNull: false,
         },
         has_vehicle: {
@@ -93,12 +65,6 @@ Mover.init(
             type: DataTypes.BOOLEAN,
             allowNull: false
         },
-     //pricing per hour
-//has vehicle
-//vehicle type/size
-//size of crew
-//license
-//can lift 50 pounds?
     },
     {
         hooks: {
