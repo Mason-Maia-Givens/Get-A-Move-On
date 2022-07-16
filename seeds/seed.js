@@ -18,6 +18,7 @@ const seedDatabase = async () => {
         await Move.bulkCreate(moveSeedData, {
             returning: true,
         });
+
         process.exit(0);
 };
 
