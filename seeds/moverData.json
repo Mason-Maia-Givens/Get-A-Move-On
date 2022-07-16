@@ -2,15 +2,27 @@
     {
         "first_name": "Ted",
         "last_name": "Bird",
-        "gender": "M",
         "email": "fakeEmail3@gmail.com",
-        "password": "an0th3rfak3passw0rd"
+        "password": "an0th3rfak3passw0rd",
+        "gender": "M",
+        "current_address": "1111 Fake Street",
+        "price_per_hour": 45,
+        "has_vehicle": 1,
+        "vehicle_type": "Truck",
+        "size_of_crew": 4,
+        "can_lift": 1
     },
     {
         "first_name": "Tina",
         "last_name": "Hawk",
-        "gender": "F",
         "email": "fakeEmail4@gmail.com",
-        "password": "this!s@f@kep33sword"
+        "password": "this!s@f@kep33sword",
+        "gender": "F",
+        "current_address": "2222 Unreal Avenue",
+        "price_per_hour": 25,
+        "has_vehicle": 0,
+        "vehicle_type": "NA",
+        "size_of_crew": 2,
+        "can_lift": 1
     }
 ]
