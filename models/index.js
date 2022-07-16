@@ -33,19 +33,19 @@ Move.hasOne(Mover, {
     onDelete: 'CASCADE'
 });
 
-User.hasMany{Client, {
+User.hasMany(Client, {
     foreignKey: 'user_id',
     onDelete: 'CASCADE'
-}};
+});
 
 Client.belongsTo(User, {
     foreignKey: 'user_id'
 });
 
-User.hasMany{Mover, {
+User.hasMany(Mover, {
     foreignKey: 'user_id',
     onDelete: 'CASCADE'
-}};
+});
 
 Mover.belongsTo(User, {
     foreignKey: 'user_id'
