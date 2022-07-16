@@ -9,7 +9,7 @@ const seedDatabase = async () => {
     try {
         await sequelize.sync({ force: true });
 
-        await User.bulkCreate(userSeedData);
+        // await User.bulkCreate(userSeedData);
         await Client.bulkCreate(clientSeedData);
         await Mover.bulkCreate(moverSeedData);
       
