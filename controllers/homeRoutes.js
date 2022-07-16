@@ -14,9 +14,17 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.get('/signup', (req, res) => {
+router.get('/signupclient', (req, res) => {
   try {
-    res.render('signupinfo');
+    res.render('signupinfoclient');
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/signupmover', (req, res) => {
+  try {
+    res.render('signupinfomover');
   } catch (err) {
     res.status(500).json(err);
   }

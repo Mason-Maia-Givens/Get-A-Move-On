@@ -11,27 +11,15 @@ Client.init(
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
-            references: {
-                model: 'user',
-                key: 'id',
-            },
         },
 
         first_name: {
             type: DataTypes.STRING,
             allowNull: false,
-            references: {
-                model: 'user',
-                key: 'first_name',
-            },
         },
         last_name: {
             type: DataTypes.STRING,
             allowNull: false,
-            references: {
-                model: 'user',
-                key: 'last_name',
-            },
         },
         email: {
             type: DataTypes.STRING,
@@ -40,10 +28,6 @@ Client.init(
             validate: {
                 isEmail: true,
             },
-            references: {
-                model: 'user',
-                key: 'email',
-            }
         },
         password: {
             type: DataTypes.STRING,
@@ -51,37 +35,20 @@ Client.init(
             validate: {
                 len: [8],
             },
-            references: {
-                model: 'user',
-                key: 'password'
-            },
         },
         gender: {
             type: DataTypes.STRING,
             allowNull: false,
-            references: {
-                model: 'user',
-                key: 'gender'
-            },
         },
         current_address: {
             type: DataTypes.STRING,
             allowNull: false,
-            references: {
-                model: 'user',
-                key: 'current_address'
-            },
         },
-        //cc_info: {
-        //   type: DataTypes.INTEGER,
-        //   allowNull: false
-        //}
     },
     {
         hooks: {
             beforeCreate: async (newUserData) => {
                 newUserData.password = await bcrypt.hash(newUserData.password, 10);
-                //newUserData.cc_info = await bcrypt.hash(newUserData.cc_info, 10);
                 return newUserData;
             },
             beforeUpdate: async (updatedUserData) => {
