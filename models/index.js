@@ -10,22 +10,27 @@ Mover.hasMany(Move, {
     foreignKey: 'id',
 });
 
-Client.belongsTo(Move, {
-    foreignKey: 'id',
+// Client.belongsTo(Move, {
+//     foreignKey: 'id',
+// });
+
+// Mover.belongsTo(Move, {
+//     foreignKey: 'id',
+// }); 
+
+// belongsto?
+Move.belongsTo(Client, {
+    // as: 'client',
+    // foreignKey: 'id',
 });
 
-Mover.belongsTo(Move, {
-    foreignKey: 'id',
-}); 
-
-Move.hasOne(Client, {
-    as: 'client',
-    foreignKey: 'id',
+Move.belongsTo(Mover, {
+    // as: 'mover',
+    // foreignKey: 'id',
 });
 
-Move.hasOne(Mover, {
-    as: 'mover',
-    foreignKey: 'id',
-});
+Client.belongsToMany(Mover, {through: Move});
+
+Mover.belongsToMany(Client, {through: Move});
 
 module.exports = {Move, Client, Mover};

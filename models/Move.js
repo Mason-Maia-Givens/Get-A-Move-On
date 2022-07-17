@@ -50,6 +50,10 @@ Move.init(
                 type: DataTypes.STRING,
                 allowNull: false,
         },
+        start_address: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         end_address: {
             type: DataTypes.STRING,
             allowNull: false,

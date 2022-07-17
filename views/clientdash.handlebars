@@ -9,7 +9,7 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
 </head>
 <div>
-<p>Hello, {{realClient.first_name}}</p>
+<p>Hello, {{currClient.first_name}}</p>
 <button>New Move</button>
 <button id="logout">Log Out</button>
 </div>
@@ -95,19 +95,20 @@
     </section>
     </div> --}}
 
-    {{#each allMovers as |mover| }}
-    <div>
-        {{mover.id}}
-        {{mover.first_name}}
-        {{mover.last_name}}
-        {{mover.gender}}
-        {{mover.price_per_hour}}
-        {{mover.has_vehicle}}
-        {{mover.vehicle_type}}
-        {{mover.size_of_crew}}
-        {{mover.can_lift}}
-    </div>
-    {{/each}}
+    {{#if clientMove}}
+        <h2>YOUR UPCOMING MOVE</h2>
+        <p>Moving to {{clientMove.end_address}}</p>
+        <p>With {{moverMove.first_name}} {{moverMove.last_name}}</p>
+        <p>On {{dateFormat clientMove.move_date}}</p>
+
+    {{else}}
+        <h2>ALL AVAILABLE MOVERS</h2>
+        {{#each allMovers as |mover| }}
+        <div>
+            {{objLoop mover}}
+        </div>
+        {{/each}}
+    {{/if}}
 
     {{#if logged_in}}
     <script src="/js/logout.js"></script>
