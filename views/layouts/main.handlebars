@@ -13,9 +13,13 @@
   <h2>
     <a href="/">Home</a>
   </h2>
+  {{#if logged_in}}
+  <h2 id="logout">Logout</h2>
+  {{else}}
   <h2>
     <a href="/login">Login</a>
   </h2>
+  {{/if}}
   <h2>
     <a href="/dashboard">Dashboard</a>
   </h2>
@@ -24,5 +28,9 @@
 <body>
       {{{ body }}}
 </body>
+
+  {{!-- {{#if logged_in}} --}}
+  <script src="/js/logout.js"></script>
+  {{!-- {{/if}} --}}
 
 </html>

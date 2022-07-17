@@ -9,10 +9,11 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
 </head>
 <div>
-<p>CLIENT DASHBOARD</p>
+<p>Hello, {{realClient.first_name}}</p>
 <button>New Move</button>
+<button id="logout">Log Out</button>
 </div>
-<nav aria-label="menu nav" class="bg-black pt-2 md:pt-1 pb-1 px-1 mt-0 h-auto fixed w-full z-20 top-0">
+{{!-- <nav aria-label="menu nav" class="bg-black pt-2 md:pt-1 pb-1 px-1 mt-0 h-auto fixed w-full z-20 top-0">
     <div class="flex flex-wrap items-center">
         <div class="flex flex-shrink md:w-1/3 justify-center md:justify-start text-white">
             <a href="#" aria-label="Home">
@@ -25,7 +26,7 @@
                 <a href="#" class="p-2 hover:bg-gray-800 text-white text-sm no-underline hover:no-underline block"><i
                         class="fa fa-user fa-fw"></i> My Profile</a>
                 <div class="border border-gray-800"></div>
-                <a href="#" class="p-2 hover:bg-gray-800 text-white text-sm no-underline hover:no-underline block"><i
+                <a id="logout" class="p-2 hover:bg-gray-800 text-white text-sm no-underline hover:no-underline block"><i
                         class="fas fa-sign-out-alt fa-fw"></i> Log Out</a>
         </div>
 
@@ -92,4 +93,22 @@
     </div>
     </div>
     </section>
+    </div> --}}
+
+    {{#each allMovers as |mover| }}
+    <div>
+        {{mover.id}}
+        {{mover.first_name}}
+        {{mover.last_name}}
+        {{mover.gender}}
+        {{mover.price_per_hour}}
+        {{mover.has_vehicle}}
+        {{mover.vehicle_type}}
+        {{mover.size_of_crew}}
+        {{mover.can_lift}}
     </div>
+    {{/each}}
+
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}

@@ -1,15 +1,15 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { Client, Mover } = require('../../models');
 
 router.post('/', async (req, res) => {
   try {
-    const userData = await User.create(req.body);
+    const clientData = await Client.create(req.body);
 
     req.session.save(() => {
-      req.session.user_id = userData.id;
+      req.session.id = clientData.id;
       req.session.logged_in = true;
 
-      res.status(200).json(userData);
+      res.status(200).json(clientData);
     });
   } catch (err) {
     res.status(400).json(err);
@@ -18,30 +18,83 @@ router.post('/', async (req, res) => {
 
 router.post('/login', async (req, res) => {
   try {
-    const userData = await User.findOne({ where: { email: req.body.email } });
+    
+    const clientData = await Client.findOne({ where: { email: req.body.email } });
 
-    if (!userData) {
-      res
-        .status(400)
-        .json({ message: 'Invalid email or password!' });
-      return;
-    }
-
-    const validPassword = await userData.checkPassword(req.body.password);
-
-    if (!validPassword) {
-      res
-        .status(400)
-        .json({ message: 'Invalid email or password!' });
-      return;
-    }
-
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
+    if (!clientData) {
       
-      res.json({ user: userData, message: 'You are now logged in!' });
-    });
+      const moverData = await Mover.findOne({ where: { email: req.body.email } });
+
+      if (!moverData) {
+        res
+          .status(400)
+          .json({ message: 'Invalid email or password!' });
+        return;
+      }
+
+      const validPassword = moverData.checkPassword(req.body.password);
+
+      if (!validPassword) {
+        res
+          .status(400)
+          .json({ message: 'Invalid email or password!' });
+        return;
+      }
+
+      req.session.save(() => {
+        // user_id?
+        req.session.mover_id = moverData.dataValues.id;
+        req.session.logged_in = true;
+        
+        res.json({ message: 'You are now logged in!' });
+      });
+  
+    } else {
+  
+      const validPassword = clientData.checkPassword(req.body.password);
+  
+      if (!validPassword) {
+        res
+          .status(400)
+          .json({ message: 'Invalid email or password!' });
+        return;
+      }
+  
+      req.session.save(() => {
+        // user_id?
+        req.session.client_id = clientData.dataValues.id;
+        req.session.logged_in = true;
+        
+        res.json({ message: 'You are now logged in!' });
+      });
+    }
+
+
+
+    // const clientData = await Client.findOne({ where: { email: req.body.email } });
+
+    // if (!clientData) {
+    //   res
+    //     .status(400)
+    //     .json({ message: 'Invalid email or password!' });
+    //   return;
+    // }
+
+    // const validPassword = clientData.checkPassword(req.body.password);
+
+    // if (!validPassword) {
+    //   res
+    //     .status(400)
+    //     .json({ message: 'Invalid email or password!' });
+    //   return;
+    // }
+
+    // req.session.save(() => {
+    //   req.session.client_id = clientData.dataValues.id;
+    //   req.session.logged_in = true;
+      
+    //   res.json({ client: clientData, message: 'You are now logged in!' });
+    // });
 
   } catch (err) {
     res.status(400).json(err);
