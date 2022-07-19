@@ -99,7 +99,7 @@
       <form method="POST" action="https://herotofu.com/start">
         <label class="block mb-6">
           <span class="text-gray-700">Moving Address</span>
-          <input name="name" type="text" class="
+          <input name="name" type="text" id="moving-address" class="
             block
             w-full
             mt-1
@@ -114,7 +114,7 @@
         </label>
         <label class="block mb-6">
           <span class="text-gray-700">Moving items total estimate</span>
-          <input name="email" type="email" class="
+          <input name="email" type="email" id="items" class="
             block
             w-full
             mt-1
@@ -129,7 +129,7 @@
         </label>
         <label class="block mb-6">
           <span class="text-gray-700">When is your desired moving date ?</span>
-          <input name="birthday" type="date" class="
+          <input name="birthday" type="date" id="moving-date" class="
             block
             w-full
             mt-1
@@ -144,7 +144,7 @@
         </label>
         <label class="block mb-6">
           <span class="text-gray-700">What size home are you moving from?</span>
-          <select name="present" class="
+          <select name="present" id="residence-size" class="
             block
             w-full
             mt-1
@@ -203,7 +203,7 @@
               <div class="mt-2">
                 <div>
                   <label class="inline-flex items-center">
-                    <input name="season" type="radio" class="
+                    <input name="season" type="radio" id="accessibility" class="
                   text-indigo-600
                   border-gray-300
                   rounded-full
@@ -238,7 +238,7 @@
             <div class="mb-6">
             </div>
             <div class="mb-6">
-              <button type="submit" class="
+              <button type="submit" id="register" class="
             h-10
             px-5
             text-indigo-100
@@ -260,4 +260,5 @@
     </div>
   </div>
 </body>
+<script src="/js/register_client.js"></script>
 </html>
