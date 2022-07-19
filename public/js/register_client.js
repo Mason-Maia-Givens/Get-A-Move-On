@@ -25,7 +25,8 @@ const handleRegister = async (event) => {
     const full_address = `${current_street}, ${city}, ${placeholderState} ${zip_code}`
 
     // Future Residence
-    const moving_street = document.querySelector('#moving-address').value.trim();
+        // THIS SHOULD BE A FULL ADDRESS
+        const moving_street = document.querySelector('#moving-address').value.trim();
     const items = document.querySelector('#items').value.trim();
     const moving_date = document.querySelector('#moving-date').value;
     // const moving_size = document.querySelector('').value.trim();
@@ -35,7 +36,7 @@ const handleRegister = async (event) => {
 
     const response = await fetch('api/users/signupclient', {
         method: 'POST',
-        body: JSON.stringify({ first_name, last_name, email, placeholderPass, placholderGender, full_address }),
+        body: JSON.stringify({ first_name, last_name, email, placeholderPass, placholderGender, full_address, moving_date, items, moving_street }),
         headers: { 'Content-Type': 'application/json' }
     });
 

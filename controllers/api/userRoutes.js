@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Client, Mover } = require('../../models');
+const { Client, Mover, Move } = require('../../models');
 
 router.post('/signupclient', async (req, res) => {
   try {
@@ -12,13 +12,36 @@ router.post('/signupclient', async (req, res) => {
       current_address: req.body.full_address
     });
     
+    const firstMove = await Move.create({
+      client_id: clientData.dataValues.id,
+      mover_id: null,
+      move_date: req.body.moving_date,
+      price_per_hour: null,
+      items: req.body.items,
+      start_address: req.body.full_address,
+      end_address: req.body.moving_street,
+      status: "Pending"
+    });
+
     req.session.save(() => {
       req.session.client_id = clientData.dataValues.id;
       req.session.logged_in = true;
 
       res.status(200).json(clientData);
     });
+
+      // client_id: req.session.client_id,
+      // mover_id: 1,
+      // move_date: "2022-10-01",
+      // price_per_hour: 10.00,
+      // big_items: 5,
+      // small_items: 15,
+      // stairs_elevator: "elevator",
+      // start_address: "Another Fake Address",
+      // end_address: "Still a Fake Address"
+
   } catch (err) {
+    // Make this more descriptive when everything has come together
     res.status(400).json(err);
   }
 });
@@ -46,6 +69,7 @@ router.post('/signupmover', async (req, res) => {
       res.status(200).json(moverData);
     });
   } catch (err) {
+    // Make this more descriptive when everything has come together
     res.status(400).json(err);
   }
 });

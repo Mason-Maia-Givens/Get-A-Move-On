@@ -47,13 +47,13 @@ router.get('/dashboard', async (req, res) => {
       // Client info based on session
       const clientData = await Client.findOne({ where: { id: req.session.client_id } });
 
-      // Find existing Move
-      const moveData = await Move.findOne({ 
-        where: { client_id: req.session.client_id},
-        attributes: { exclude: ['id', 'client_id', 'price_per_hour', 'big_items', 'small_items', 'stairs_elevator'] },
-        include: [{ model: Mover }]
+      // Determine if move is confirmed or not
+      const pendingMoveData = await Move.findOne({
+        where: { client_id: req.session.client_id }
       });
       
+      console.log(pendingMoveData);
+
       // See all available Movers
       const moverData = await Mover.findAll( {
         attributes: { exclude: ['email', 'password', 'current_address'] }
@@ -61,18 +61,26 @@ router.get('/dashboard', async (req, res) => {
 
       // Prepare data for rendering
       const currClient = clientData.dataValues;
+      const pendingMove = pendingMoveData.dataValues;
       const allMovers = moverData.map((mover) => mover.get({ plain: true }));
 
-    
       // Render Client template with readied data
-      if (moveData === null) {
+      if (pendingMoveData.dataValues.status === "Pending") {
         res.render('clientdash', {
           currClient,
+          pendingMove,
           allMovers,
         });
       } else {
-        const clientMove = moveData.dataValues;
-        const moverMove = moveData.mover.dataValues;
+        // Find confirmed Move
+        const confirmedMoveData = await Move.findOne({ 
+          where: { client_id: req.session.client_id },
+          attributes: { exclude: ['id', 'client_id', 'price_per_hour', 'big_items', 'small_items', 'stairs_elevator'] },
+          include: [{ model: Mover }]
+        });
+
+        const clientMove = confirmedMoveData.dataValues;
+        const moverMove = confirmedMoveData.mover.dataValues;
 
         res.render('clientdash', {
           currClient,

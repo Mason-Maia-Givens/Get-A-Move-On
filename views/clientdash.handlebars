@@ -94,14 +94,15 @@
     </div>
     </section>
     </div> --}}
-
+    <h2>YOUR UPCOMING MOVE</h2>
     {{#if clientMove}}
-        <h2>YOUR UPCOMING MOVE</h2>
         <p>Moving to {{clientMove.end_address}}</p>
         <p>With {{moverMove.first_name}} {{moverMove.last_name}}</p>
         <p>On {{dateFormat clientMove.move_date}}</p>
 
     {{else}}
+        <p>Moving to {{pendingMove.end_address}}</p>
+        <p>On {{dateFormat pendingMove.move_date}}</p>
         <h2>ALL AVAILABLE MOVERS</h2>
         {{#each allMovers as |mover| }}
         <div>
