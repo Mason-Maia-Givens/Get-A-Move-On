@@ -69,6 +69,11 @@ Mover.init(
             type: DataTypes.BOOLEAN,
             allowNull: false
         },
+        photo: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            defaultValue: ''
+        },
     },
     {
         hooks: {
