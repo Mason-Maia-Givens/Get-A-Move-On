@@ -1,13 +1,25 @@
 const router = require('express').Router();
-const { Move } = require('../../models');
+const { Move, Client } = require('../../models');
 
 // Create a new move
-router.post('/', async (req, res) => {
+router.post('/confirm', async (req, res) => {
   try {
-    const newMove = await Move.create({
-      ...req.body,
-      user_id: req.session.user_id
-    });
+    const clientData = await Client.findOne({ where: {id: req.session.client_id} })
+
+    console.log(clientData.dataValues);
+
+    // const newMove = await Move.create({
+      
+    //   client_id: req.session.client_id,
+    //   mover_id: 1,
+    //   move_date: "2022-10-01",
+    //   price_per_hour: 10.00,
+    //   big_items: 5,
+    //   small_items: 15,
+    //   stairs_elevator: "elevator",
+    //   start_address: "Another Fake Address",
+    //   end_address: "Still a Fake Address"
+    // });
 
     res.status(200).json(newMove);
   } catch (err) {

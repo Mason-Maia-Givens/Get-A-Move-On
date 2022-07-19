@@ -106,6 +106,7 @@
         {{#each allMovers as |mover| }}
         <div>
             {{objLoop mover}}
+            <button class="confirm">HIRE</button>
         </div>
         {{/each}}
     {{/if}}
@@ -113,3 +114,4 @@
     {{#if logged_in}}
     <script src="/js/logout.js"></script>
     {{/if}}
+    <script src="/js/confirm.js"></script>

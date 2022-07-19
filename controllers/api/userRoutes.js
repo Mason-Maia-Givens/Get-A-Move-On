@@ -1,12 +1,19 @@
 const router = require('express').Router();
 const { Client, Mover } = require('../../models');
 
-router.post('/', async (req, res) => {
+router.post('/signupclient', async (req, res) => {
   try {
-    const clientData = await Client.create(req.body);
-
+    const clientData = await Client.create({
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
+      email: req.body.email,
+      password: req.body.placeholderPass,
+      gender: req.body.placholderGender,
+      current_address: req.body.full_address
+    });
+    
     req.session.save(() => {
-      req.session.id = clientData.id;
+      req.session.client_id = clientData.dataValues.id;
       req.session.logged_in = true;
 
       res.status(200).json(clientData);
