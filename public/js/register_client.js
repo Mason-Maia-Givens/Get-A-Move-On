@@ -9,19 +9,22 @@ const handleRegister = async (event) => {
     const placeholderPass = "pleasereplacethis";
     // const gender = document.querySelector('').value.trim();
     const placholderGender = "F";
+
+    // Move information
+    // Current Residence
     const current_street = document.querySelector('#street-address').value.trim();
-        // Is this necessary if we're just doing Chicago?
-        const city = document.querySelector('#city').value.trim();
-        // const state = document.querySelector('').value.trim();
-        const placeholderState = "Not a Real State";
-        const zip_code = document.querySelector('#postal-code').value.trim();
-    const current_size = document.querySelector('#residence-size').value.trim();
+    // Is this necessary if we're just doing Chicago?
+    const city = document.querySelector('#city').value.trim();
+    // const state = document.querySelector('').value.trim();
+    const placeholderState = "Not a Real State";
+    const zip_code = document.querySelector('#postal-code').value.trim();
+    // const current_size = document.querySelector('#residence-size').value.trim();
     // const current_floor = document.querySelector('').value.trim();
 
     // Concatenate full address
     const full_address = `${current_street}, ${city}, ${placeholderState} ${zip_code}`
 
-    //Move information
+    // Future Residence
     const moving_street = document.querySelector('#moving-address').value.trim();
     const items = document.querySelector('#items').value.trim();
     const moving_date = document.querySelector('#moving-date').value;
@@ -41,6 +44,7 @@ const handleRegister = async (event) => {
     } else {
         alert(response.statusText);
     }
+    
 }
 
 document.querySelector('#register').addEventListener('click', handleRegister);
