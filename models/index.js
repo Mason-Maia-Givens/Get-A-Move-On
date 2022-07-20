@@ -3,31 +3,34 @@ const Client = require('./Client');
 const Mover = require('./Mover');
 
 Client.hasMany(Move, {
-    foreignKey: 'client_id',
+    foreignKey: 'id',
 });
 
 Mover.hasMany(Move, {
-    foreignKey: 'mover_id',
+    foreignKey: 'id',
 });
 
-Client.belongsTo(Move, {
-    foreignKey: 'client_id',
+// Client.belongsTo(Move, {
+//     foreignKey: 'id',
+// });
+
+// Mover.belongsTo(Move, {
+//     foreignKey: 'id',
+// }); 
+
+// belongsto?
+Move.belongsTo(Client, {
+    // as: 'client',
+    // foreignKey: 'id',
 });
 
-Mover.belongsTo(Move, {
-    foreignKey: 'mover_id',
-}); 
-
-Move.hasOne(Client, {
-    as: 'client',
-    foreignKey: 'client_id',
+Move.belongsTo(Mover, {
+    // as: 'mover',
+    // foreignKey: 'id',
 });
 
-Move.hasOne(Mover, {
-    as: 'mover',
-    foreignKey: 'mover_id',
-});
+Client.belongsToMany(Mover, {through: Move});
+
+Mover.belongsToMany(Client, {through: Move});
 
 module.exports = {Move, Client, Mover};
-
-

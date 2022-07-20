@@ -2,7 +2,11 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const bcrypt = require('bcrypt');
 
-class Client extends Model {}
+class Client extends Model {
+    checkPassword(loginPw) {
+        return bcrypt.compareSync(loginPw, this.password);
+      }
+}
 
 Client.init(
     {
@@ -12,7 +16,6 @@ Client.init(
             primaryKey: true,
             autoIncrement: true,
         },
-
         first_name: {
             type: DataTypes.STRING,
             allowNull: false,

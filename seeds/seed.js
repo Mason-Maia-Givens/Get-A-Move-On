@@ -7,11 +7,11 @@ const moverSeedData = require('./moverData.json');
 
 const seedDatabase = async () => {
     await sequelize.sync({ force: true });    
-        await Mover.bulkCreate(moverSeedData,{
+        await Mover.bulkCreate(moverSeedData, {
             individualHooks: true,
             returning: true,
         }); 
-        await Client.bulkCreate(clientSeedData,{
+        await Client.bulkCreate(clientSeedData, {
             individualHooks: true,
             returning: true,
         }); 

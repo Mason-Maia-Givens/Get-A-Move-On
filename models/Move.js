@@ -21,7 +21,7 @@ Move.init(
         },
         mover_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: true,
             references: {
                 model: 'mover',
                 key: 'id',
@@ -36,24 +36,24 @@ Move.init(
         },
         price_per_hour: {
             type: DataTypes.DECIMAL(10, 2),
-            allowNull: false, 
+            allowNull: true, 
         },
-        big_items: {
-            type: DataTypes.INTEGER,
+        items: {
+            type: DataTypes.STRING,
             allowNull: false,
         },
-        small_items: {
-            type: DataTypes.INTEGER,
+        start_address: {
+            type: DataTypes.STRING,
             allowNull: false,
-        },
-        stairs_elevator: {
-                type: DataTypes.STRING,
-                allowNull: false,
         },
         end_address: {
             type: DataTypes.STRING,
             allowNull: false,
         },
+        status: {
+            type:DataTypes.STRING,
+            allowNull: false
+        }
     },
     {
         sequelize, 
