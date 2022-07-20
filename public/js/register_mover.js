@@ -5,16 +5,15 @@ const handleRegister = async (event) => {
     const first_name = document.querySelector('#first-name').value.trim();
     const last_name = document.querySelector('#last-name').value.trim();
     const email = document.querySelector('#email-address').value.trim();
-    // const password = document.querySelector('').value.trim();
-    const placeholderPass = "pleasereplacethis";
-    // const gender = document.querySelector('').value.trim();
-    const placholderGender = "F";
+    const password = document.querySelector('#password').value.trim();
+    // const placeholderPass = "pleasereplacethis";
+    const gender = document.querySelector('#gender').value.trim();
+    // const placholderGender = "F";
 
     // Current Residence
     const current_street = document.querySelector('#street-address').value.trim();
-    // Is this necessary if we're just doing Chicago?
     const city = document.querySelector('#city').value.trim();
-    // const state = document.querySelector('').value.trim();
+    // const state = document.querySelector('#state').value.trim();
     const placeholderState = "Not a Real State";
     const zip_code = document.querySelector('#postal-code').value.trim();
 
@@ -23,15 +22,15 @@ const handleRegister = async (event) => {
 
     // Mover Information
     const hourly_rate = document.querySelector('#hourly-rate').value;
-        // THIS SHOULD BE AN INTEGER
-        // const crew_size = document.querySelector('#crew-size').value;
+    const crew_select = document.querySelector('#crew');
+    // const crew = crew_select.querySelectorAll(':scope > option:selected');
     const placeholderCrew = 4
-    const vehicle_model = document.querySelector('#vehicle-model').value;
+    const vehicle_model = document.querySelector('#vehicle-model');
     const drivers_license = document.querySelector('#license-number').value;
 
     const response = await fetch('api/users/signupmover', {
         method: 'POST',
-        body: JSON.stringify({ first_name, last_name, email, placeholderPass, placholderGender, full_address, hourly_rate, vehicle_model, drivers_license, placeholderCrew }),
+        body: JSON.stringify({ first_name, last_name, email, password, gender, full_address, hourly_rate, vehicle_model, drivers_license, crew }),
         headers: { 'Content-Type': 'application/json' }
     });
 

@@ -101,8 +101,8 @@
         <p>On {{dateFormat clientMove.move_date}}</p>
 
     {{else}}
-        <p>Moving to {{pendingMove.end_address}}</p>
-        <p>On {{dateFormat pendingMove.move_date}}</p>
+        <p>Moving to {{moveStatus.end_address}}</p>
+        <p>On {{dateFormat moveStatus.move_date}}</p>
         <h2>ALL AVAILABLE MOVERS</h2>
         {{#each allMovers as |mover| }}
         <div>

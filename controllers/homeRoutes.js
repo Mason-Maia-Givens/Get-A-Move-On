@@ -48,11 +48,9 @@ router.get('/dashboard', async (req, res) => {
       const clientData = await Client.findOne({ where: { id: req.session.client_id } });
 
       // Determine if move is confirmed or not
-      const pendingMoveData = await Move.findOne({
+      const moveData = await Move.findOne({
         where: { client_id: req.session.client_id }
       });
-      
-      console.log(pendingMoveData);
 
       // See all available Movers
       const moverData = await Mover.findAll( {
@@ -61,14 +59,14 @@ router.get('/dashboard', async (req, res) => {
 
       // Prepare data for rendering
       const currClient = clientData.dataValues;
-      const pendingMove = pendingMoveData.dataValues;
+      const moveStatus = moveData.dataValues;
       const allMovers = moverData.map((mover) => mover.get({ plain: true }));
 
       // Render Client template with readied data
-      if (pendingMoveData.dataValues.status === "Pending") {
+      if (moveStatus.status === "Created") {
         res.render('clientdash', {
           currClient,
-          pendingMove,
+          moveStatus,
           allMovers,
         });
       } else {
