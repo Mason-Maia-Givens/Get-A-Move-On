@@ -1,8 +1,18 @@
 const router = require('express').Router();
 const { Client, Mover, Move } = require('../../models');
+const { uploadFile } = require('../../imageupload');
 
 router.post('/signupclient', async (req, res) => {
   try {
+    if (req.file) { 
+      const result = await uploadFile(req.file);
+      console.log(result);
+      req.body.profile_picture = result.Location;
+      console.log(req.body)
+    };
+
+    const userData = await User.create(req.body);
+    
     const clientData = await Client.create({
       first_name: req.body.first_name,
       last_name: req.body.last_name,
@@ -73,6 +83,29 @@ router.post('/signupmover', async (req, res) => {
     res.status(400).json(err);
   }
 });
+
+router.post('/image', withAuth, async (req, res) => {
+  console.log(`POST USER "/image" ROUTE SLAPPED`);
+  console.log(req.file);
+
+  const result = await uploadFile(req.file);
+  console.log(result);
+  console.log(result.Location);
+  const newProfilePhoto = result.Location;
+
+  await User.update(
+    {
+      profile_picture: newProfilePhoto
+    },
+    {
+      where: {
+        id: req.session.user_id
+      },
+    });
+
+    res.redirect('/user');
+    
+})
 
 router.post('/login', async (req, res) => {
   try {

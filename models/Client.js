@@ -47,6 +47,11 @@ Client.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
+        photo: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            defaultValue: ''
+        },
     },
     {
         hooks: {

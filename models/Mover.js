@@ -65,6 +65,11 @@ Mover.init(
             type: DataTypes.INTEGER,
             allowNull: false,
         },
+        photo: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            defaultValue: ''
+        },
     },
     {
         hooks: {
@@ -86,4 +91,3 @@ Mover.init(
 );
 
 module.exports = Mover;
-
