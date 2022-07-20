@@ -3,8 +3,18 @@ const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 const multer = require('multer');
+const { checkFileType } = require('./imageupload');
 
-
+// image upload middleware
+const upload = multer({
+  limits: {
+    //max image size 2MB
+    fileSize: 2000000,
+    fileFilter: function (req, file, cb) {
+      checkFileType(file, cb);
+    }
+  }
+});
 
 // MVC-style routes
 const routes = require('./controllers');
@@ -16,15 +26,7 @@ const helpers = require('./utils/helpers');
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
-//photo upload middleware
-const upload = multer({
-  limits:{
-    fileSize: 2000000,
-    fileFilter: function (req, file, cb){
-      checkFileUploadType(file, cb)
-    }
-  }
-});
+
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -38,7 +40,8 @@ const sess = {
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
-    db: sequelize
+    db: sequelize,
+    expiration: 30000
   })
 };
 
@@ -50,7 +53,7 @@ app.set('view engine', 'handlebars');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(upload.single('photo'))
+app.use(upload.single('profile_picture'))
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);

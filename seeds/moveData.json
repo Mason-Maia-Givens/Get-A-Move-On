@@ -4,10 +4,10 @@
         "mover_id": 2,
         "move_date": "2022-09-01",
         "price_per_hour": 50.00,
-        "big_items": 10,
+        "items": "Couch, TV, Dresser",
         "small_items": 20,
-        "stairs_elevator": "stairs",
         "start_address": "2222 Unreal Avenue",
-        "end_address": "999 Actually A Real Place"
+        "end_address": "999 Actually A Real Place",
+        "status": "Confirmed"
     }
 ]
