@@ -108,7 +108,6 @@
         <div class="border-t border-gray-200"></div>
     </div>
 
-
     <div class="mt-10 sm:mt-0">
         <div class="md:grid md:grid-cols-3 md:gap-6">
             <div class="md:col-span-1">
@@ -122,7 +121,7 @@
 
                     <label class="block mb-6">
                         <span class="text-gray-700">Moving Address</span>
-                        <input name="name" type="text" class="
+                        <input name="name" type="text" id="moving-address" class="
             block
             w-full
             mt-1
@@ -133,11 +132,11 @@
             focus:ring
             focus:ring-indigo-200
             focus:ring-opacity-50
-          " placeholder="123 green road" />
+            placeholder="123 green road" />
                     </label>
                     <label class="block mb-6">
                         <span class="text-gray-700">Floor?</span>
-                        <input name="name" type="text" class="
+                        <input name="name" type="text" id="items" class="
             block
             w-full
             mt-1
@@ -148,7 +147,7 @@
             focus:ring
             focus:ring-indigo-200
             focus:ring-opacity-50
-          " placeholder="10th" />
+            placeholder="10th" />
                     </label>
                     <label class="block mb-6">
                         <span class="text-gray-700">Moving items total estimate</span>
@@ -163,11 +162,11 @@
             focus:ring
             focus:ring-red-100
             focus:ring-opacity-50
-          " placeholder="10 boxes, one dresser, 1 TV" />
+            placeholder="10 boxes, one dresser, 1 TV" />
                     </label>
                     <label class="block mb-6">
                         <span class="text-gray-700">When is your desired moving date ?</span>
-                        <input name="birthday" type="date" class="
+                        <input name="birthday" type="date" id="moving-date" class="
             block
             w-full
             mt-1
@@ -183,7 +182,7 @@
                     <!-- apartment type -->
                     <label class="block mb-6">
                         <span class="text-gray-700">What size home are you moving from?</span>
-                        <select name="present" class="
+                        <select name="present" id="residence-size" class="
             block
             w-full
             mt-1
@@ -195,6 +194,7 @@
             focus:ring-red-100
             focus:ring-opacity-50
           ">
+
                             <option>Studio</option>
                             <option>1 bedroom</option>
                             <option>2 bedroom</option>
@@ -309,7 +309,7 @@
                             </div>
 
                             <div class="mb-6">
-                                <button type="submit" class="
+                                <button type="submit" id="register" class="
             h-10
             px-5
             text-indigo-100
@@ -333,5 +333,5 @@
                 </div>
             </div>
 </body>
-
+<script src="/js/register_client.js"></script>
 </html>

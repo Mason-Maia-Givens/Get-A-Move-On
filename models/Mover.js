@@ -53,21 +53,17 @@ Mover.init(
             type: DataTypes.DECIMAL(10,2),
             allowNull: false,
         },
-        has_vehicle: {
-            type: DataTypes.BOOLEAN,
-            allowNull: false,
-        },
-        vehicle_type: {
+        vehicle_model: {
             type: DataTypes.STRING,
+            allowNull: true,
+        },
+        drivers_license: {
+            type: DataTypes.INTEGER,
             allowNull: false,
         },
         size_of_crew: {
             type: DataTypes.INTEGER,
             allowNull: false,
-        },
-        can_lift: {
-            type: DataTypes.BOOLEAN,
-            allowNull: false
         },
     },
     {
