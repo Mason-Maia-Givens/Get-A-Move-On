@@ -84,28 +84,28 @@ router.post('/signupmover', async (req, res) => {
   }
 });
 
-router.post('/image', withAuth, async (req, res) => {
-  console.log(`POST USER "/image" ROUTE SLAPPED`);
-  console.log(req.file);
+// router.post('/image', withAuth, async (req, res) => {
+//   console.log(`POST USER "/image" ROUTE SLAPPED`);
+//   console.log(req.file);
 
-  const result = await uploadFile(req.file);
-  console.log(result);
-  console.log(result.Location);
-  const newProfilePhoto = result.Location;
+//   const result = await uploadFile(req.file);
+//   console.log(result);
+//   console.log(result.Location);
+//   const newProfilePhoto = result.Location;
 
-  await User.update(
-    {
-      profile_picture: newProfilePhoto
-    },
-    {
-      where: {
-        id: req.session.user_id
-      },
-    });
+//   await User.update(
+//     {
+//       profile_picture: newProfilePhoto
+//     },
+//     {
+//       where: {
+//         id: req.session.user_id
+//       },
+//     });
 
-    res.redirect('/user');
+//     res.redirect('/user');
     
-})
+// })
 
 router.post('/login', async (req, res) => {
   try {
