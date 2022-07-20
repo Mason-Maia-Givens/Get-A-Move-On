@@ -49,7 +49,7 @@
                   <div class="col-span-6 sm:col-span-4">
                     <label for="email-address" class="block text-sm font-medium text-gray-700">Gender
                     </label>
-                    <input type="text" name="email-address" id="email-address" autocomplete="email"
+                    <input type="text" name="email-address" id="gender" autocomplete="email"
                       class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                   </div>
                   <!-- email -->
@@ -63,7 +63,7 @@
                   <div class="col-span-6 sm:col-span-4">
                     <label for="email-address" class="block text-sm font-medium text-gray-700">Password
                     </label>
-                    <input type="text" name="email-address" id="email-address" autocomplete="email"
+                    <input type="text" name="email-address" id="password" autocomplete="email"
                       class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                   </div>
                   <!-- address info -->
@@ -109,10 +109,10 @@
         <!-- box. start -->
         <div class="mt-5 md:mt-0 md:col-span-2">
           <div class="p-6 border border-gray-150 sm:rounded-md">
-            <form method="POST" action="https://herotofu.com/start">
+            <form>
               <label class="block mb-6">
                 <span class="text-gray-700">Labor Price</span>
-                <input name="name" type="text" class="
+                <input name="name" type="text" id="hourly-rate" class="
             block
             w-full
             mt-1
@@ -246,5 +246,5 @@
       </div>
     </div>
   </body>
-
+<script src="/js/register_mover.js"></script>
 </html>

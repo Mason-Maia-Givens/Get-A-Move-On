@@ -95,24 +95,31 @@
     </section>
     </div> --}}
     <h2>YOUR UPCOMING MOVE</h2>
-    {{#if clientMove}}
-        <p>Moving to {{clientMove.end_address}}</p>
+    {{#if confirmedClientMove}}
+        <div id="confirmed-move">
+        <p>Moving to {{confirmedClientMove.end_address}}</p>
         <p>With {{moverMove.first_name}} {{moverMove.last_name}}</p>
-        <p>On {{dateFormat clientMove.move_date}}</p>
-
+        <p>On {{dateFormat confirmedClientMove.move_date}}</p>
+        <p>Status: {{confirmedClientMove.status}}</p>
+        </div>
     {{else}}
-        <p>Moving to {{pendingMove.end_address}}</p>
-        <p>On {{dateFormat pendingMove.move_date}}</p>
+        <div id="created-move"></div>
+        <p>Moving to {{moveStatus.end_address}}</p>
+        <p>On {{dateFormat moveStatus.move_date}}</p>
+        </div>
+
         <h2>ALL AVAILABLE MOVERS</h2>
         {{#each allMovers as |mover| }}
-        <div>
-            {{objLoop mover}}
+        <div id="mover-{{mover.id}}" data-id="{{mover.id}}" data-hourly="{{mover.price_per_hour}}">
+            <h3>{{mover.first_name}} {{mover.last_name}}</h3>
+            <p>{{mover.gender}}</p>
+            <p>{{mover.price_per_hour}}</p>
+            <p>{{mover.vehicle_model}}</p>
+            <p>{{mover.crew}}</p>
             <button class="confirm">HIRE</button>
         </div>
         {{/each}}
     {{/if}}
 
-    {{#if logged_in}}
     <script src="/js/logout.js"></script>
-    {{/if}}
     <script src="/js/confirm.js"></script>
