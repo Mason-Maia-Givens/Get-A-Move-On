@@ -11,15 +11,14 @@ router.post('/signupclient', async (req, res) => {
       console.log(req.body)
     };
 
-    const userData = await User.create(req.body);
-    
     const clientData = await Client.create({
       first_name: req.body.first_name,
       last_name: req.body.last_name,
       email: req.body.email,
       password: req.body.placeholderPass,
       gender: req.body.placholderGender,
-      current_address: req.body.full_address
+      current_address: req.body.full_address,
+      profile_picture: req.body.profile_picture
     });
     
     const firstMove = await Move.create({
@@ -58,6 +57,13 @@ router.post('/signupclient', async (req, res) => {
 
 router.post('/signupmover', async (req, res) => {
   try {
+    if (req.file) {
+        const result = await uploadFile(req.file);
+        console.log(result);
+        req.body.profile_picture = result.Location;
+        console.log(req.body)
+      };
+
     const moverData = await Mover.create({
       first_name: req.body.first_name,
       last_name: req.body.last_name,
@@ -68,8 +74,8 @@ router.post('/signupmover', async (req, res) => {
       price_per_hour: req.body.hourly_rate,
       vehicle_model: req.body.vehicle_model,
       drivers_license: req.body.drivers_license,
-      size_of_crew: req.body.placeholderCrew
-
+      size_of_crew: req.body.placeholderCrew,
+      profile_picture: req.body.profile_picture
     });
     
     req.session.save(() => {
@@ -84,28 +90,28 @@ router.post('/signupmover', async (req, res) => {
   }
 });
 
-router.post('/image', withAuth, async (req, res) => {
-  console.log(`POST USER "/image" ROUTE SLAPPED`);
-  console.log(req.file);
+// router.post('/image', withAuth, async (req, res) => {
+//   console.log(`POST USER "/image" ROUTE SLAPPED`);
+//   console.log(req.file);
 
-  const result = await uploadFile(req.file);
-  console.log(result);
-  console.log(result.Location);
-  const newProfilePhoto = result.Location;
+//   const result = await uploadFile(req.file);
+//   console.log(result);
+//   console.log(result.Location);
+//   const newProfilePhoto = result.Location;
 
-  await User.update(
-    {
-      profile_picture: newProfilePhoto
-    },
-    {
-      where: {
-        id: req.session.user_id
-      },
-    });
+//   await Client.update(
+//     {
+//       profile_picture: newProfilePhoto
+//     },
+//     {
+//       where: {
+//         id: req.session.client_id
+//       },
+//     });
 
-    res.redirect('/user');
+//     res.redirect('/user');
     
-})
+// })
 
 router.post('/login', async (req, res) => {
   try {

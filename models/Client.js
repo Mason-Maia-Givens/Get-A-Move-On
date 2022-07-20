@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 class Client extends Model {
     checkPassword(loginPw) {
         return bcrypt.compareSync(loginPw, this.password);
-      }
+    }
 }
 
 Client.init(
@@ -47,7 +47,7 @@ Client.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        photo: {
+        profile_picture: {
             type: DataTypes.STRING,
             allowNull: false,
             defaultValue: ''

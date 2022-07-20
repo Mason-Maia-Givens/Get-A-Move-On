@@ -9,6 +9,8 @@ const handleRegister = async (event) => {
     const placeholderPass = "pleasereplacethis";
     // const gender = document.querySelector('').value.trim();
     const placholderGender = "F";
+    //profile picture
+    const profile_picture = document.querySelector(`#profilePicture`).files[0];
 
     // Move information
     // Current Residence
@@ -36,7 +38,7 @@ const handleRegister = async (event) => {
 
     const response = await fetch('api/users/signupclient', {
         method: 'POST',
-        body: JSON.stringify({ first_name, last_name, email, placeholderPass, placholderGender, full_address, moving_date, items, moving_street }),
+        body: JSON.stringify({ first_name, last_name, email, placeholderPass, placholderGender, full_address, moving_date, items, moving_street, profile_picture }),
         headers: { 'Content-Type': 'application/json' }
     });
 

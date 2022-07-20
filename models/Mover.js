@@ -65,7 +65,7 @@ Mover.init(
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-        photo: {
+        profile_picture: {
             type: DataTypes.STRING,
             allowNull: false,
             defaultValue: ''
