@@ -6,9 +6,7 @@ const handleRegister = async (event) => {
     const last_name = document.querySelector('#last-name').value.trim();
     const email = document.querySelector('#email-address').value.trim();
     const password = document.querySelector('#password').value.trim();
-    // const placeholderPass = "pleasereplacethis";
     const gender = document.querySelector('#gender').value.trim();
-    // const placholderGender = "F";
 
     // Current Residence
     const current_street = document.querySelector('#street-address').value.trim();

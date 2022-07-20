@@ -62,7 +62,7 @@ Mover.init(
             allowNull: false,
         },
         crew: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false,
         },
     },

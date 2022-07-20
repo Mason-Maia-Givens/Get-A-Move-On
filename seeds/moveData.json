@@ -1,7 +1,7 @@
 [
     {
         "client_id": 1,
-        "mover_id": 2,
+        "mover_id": 1,
         "move_date": "2022-09-01",
         "price_per_hour": 50.00,
         "items": "Couch, TV, Dresser",

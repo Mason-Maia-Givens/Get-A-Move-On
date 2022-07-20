@@ -7,8 +7,6 @@ const handleRegister = async (event) => {
     const gender = document.querySelector('#gender').value.trim();
     const email = document.querySelector('#email-address').value.trim();
     const password = document.querySelector('#password').value.trim();
-    // const placeholderPass = "pleasereplacethis";
-    // const placholderGender = "F";
 
     // Move information
     // Current Residence
