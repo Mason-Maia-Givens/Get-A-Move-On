@@ -68,7 +68,7 @@ Mover.init(
         profile_picture: {
             type: DataTypes.STRING,
             allowNull: false,
-            defaultValue: ''
+            defaultValue: 'https://getamoveon.s3.amazonaws.com/blank-profile-picture.png'
         },
     },
     {
