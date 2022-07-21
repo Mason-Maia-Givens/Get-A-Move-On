@@ -7,6 +7,8 @@ const handleRegister = async (event) => {
     const gender = document.querySelector('#gender').value.trim();
     const email = document.querySelector('#email-address').value.trim();
     const password = document.querySelector('#password').value.trim();
+    //profile picture
+    // const profile_picture = document.querySelector(`#profilePicture`).files[0];
 
     // Move information
     // Current Residence
@@ -30,11 +32,13 @@ const handleRegister = async (event) => {
     // const moving_floor = document.querySelector('#moving-floor').value.trim();
     
     // Should this be in the Personal Information section?
-    // const accessibility = document.querySelector('#accessibility').value;
+    const accessibility = document.querySelector('#accessibility').checked;
 
     const response = await fetch('api/users/signupclient', {
         method: 'POST',
-        body: JSON.stringify({ first_name, last_name, email, password, gender, full_address, moving_date, items, moving_street }),
+
+        body: JSON.stringify({ first_name, last_name, email, password, gender, full_address, moving_date, items, moving_street, accessibility }),
+
         headers: { 'Content-Type': 'application/json' }
     });
 

@@ -7,6 +7,8 @@ const handleRegister = async (event) => {
     const email = document.querySelector('#email-address').value.trim();
     const password = document.querySelector('#password').value.trim();
     const gender = document.querySelector('#gender').value.trim();
+    // const profile_picture = document.querySelector(`#profilePicture`).file[0];
+
 
     // Current Residence
     const current_street = document.querySelector('#street-address').value.trim();
@@ -20,15 +22,15 @@ const handleRegister = async (event) => {
 
     // Mover Information
     const hourly_rate = document.querySelector('#hourly-rate').value;
-    const crew_select = document.querySelector('#crew');
+    // const crew_select = document.querySelector('#crew');
     // const crew = crew_select.querySelectorAll(':scope > option:selected');
-    const placeholderCrew = 4
-    const vehicle_model = document.querySelector('#vehicle-model');
+    const placeholderCrew = "4"
+    const vehicle_model = document.querySelector('#vehicle-model').value;
     const drivers_license = document.querySelector('#license-number').value;
 
     const response = await fetch('api/users/signupmover', {
         method: 'POST',
-        body: JSON.stringify({ first_name, last_name, email, password, gender, full_address, hourly_rate, vehicle_model, drivers_license, crew }),
+        body: JSON.stringify({ first_name, last_name, email, password, gender, full_address, hourly_rate, vehicle_model, drivers_license, placeholderCrew }),
         headers: { 'Content-Type': 'application/json' }
     });
 

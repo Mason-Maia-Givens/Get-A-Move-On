@@ -1,0 +1,12 @@
+.mover-card-holder {
+    display: flex;
+}
+
+.mover-card {
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.mover-container {
+    justify-content: space-between;
+}

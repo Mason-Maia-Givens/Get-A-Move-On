@@ -5,7 +5,8 @@
         "email": "fakeEmail1@gmail.com",
         "password": "fakepassword",
         "gender": "M",
-        "current_address": "3333 Faux Way"
+        "current_address": "3333 Faux Way",
+        "accessibility": 1
     },
     {
         "first_name": "Jane",
@@ -13,6 +14,7 @@
         "email": "fakeEmail2@gmail.com",
         "password": "fakerpassword",
         "gender": "F",
-        "current_address": "4444 Isn't Real Alley"
+        "current_address": "4444 Isn't Real Alley",
+        "accessibility": 0
     }
 ]
