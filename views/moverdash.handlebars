@@ -10,7 +10,7 @@
 </head>
 
 
-
+<button class= "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" id="logout">Log Out</button>
 {{!-- <!--Nav bar top-->
 <nav aria-label="menu nav" class="bg-black pt-2 md:pt-1 pb-1 px-1 mt-0 h-auto fixed w-full z-20 top-0">
     <div class="flex flex-wrap items-center">
@@ -112,6 +112,7 @@
             <p>From {{conMove.client.current_address}}</p>
             <p>To {{conMove.end_address}}</p>
             <p>On {{dateFormat conMove.move_date}}</p>
+            <p>Accessibility Concerns: {{conMove.client.accessibility}}</p>
             <p>Status: {{conMove.status}}</p>
             <button id="cancel">Cancel</button>
         </div>
@@ -128,6 +129,7 @@
             <p>From {{penMove.client.current_address}}</p>
             <p>To {{penMove.end_address}}</p>
             <p>On {{dateFormat penMove.move_date}}</p>
+            <p>Accessibility Concerns: {{conMove.client.accessibility}}</p>
             <p>Status: {{penMove.status}}</p>
             <button id="accept">Accept</button>
             <button id="decline">Decline</button>
@@ -151,3 +153,4 @@
     {{/if}}
 
     <script src="/js/mover_buttons.js"></script>
+    <script src="/js/logout.js"></script>

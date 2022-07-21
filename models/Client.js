@@ -47,6 +47,10 @@ Client.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
+        accessibility: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+        },
         profile_picture: {
             type: DataTypes.STRING,
             allowNull: false,

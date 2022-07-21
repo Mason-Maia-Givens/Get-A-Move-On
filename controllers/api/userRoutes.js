@@ -18,6 +18,7 @@ router.post('/signupclient', async (req, res) => {
       password: req.body.password,
       gender: req.body.gender,
       current_address: req.body.full_address,
+      accessibility: req.body.accessibility,
       // profile_picture: req.body.profile_picture
     });
     
@@ -63,8 +64,8 @@ router.post('/signupmover', async (req, res) => {
       price_per_hour: req.body.hourly_rate,
       vehicle_model: req.body.vehicle_model,
       drivers_license: req.body.drivers_license,
-      size_of_crew: req.body.placeholderCrew,
-      profile_picture: req.body.profile_picture
+      crew: req.body.placeholderCrew,
+      // profile_picture: req.body.profile_picture
     });
     
     req.session.save(() => {

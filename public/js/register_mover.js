@@ -7,7 +7,7 @@ const handleRegister = async (event) => {
     const email = document.querySelector('#email-address').value.trim();
     const password = document.querySelector('#password').value.trim();
     const gender = document.querySelector('#gender').value.trim();
-    const profile_picture = document.querySelector(`#profilePicture`).file[0];
+    // const profile_picture = document.querySelector(`#profilePicture`).file[0];
 
 
     // Current Residence
@@ -30,7 +30,7 @@ const handleRegister = async (event) => {
 
     const response = await fetch('api/users/signupmover', {
         method: 'POST',
-        body: JSON.stringify({ first_name, last_name, email, password, gender, full_address, hourly_rate, vehicle_model, drivers_license, placeholderCrew, profile_picture }),
+        body: JSON.stringify({ first_name, last_name, email, password, gender, full_address, hourly_rate, vehicle_model, drivers_license, placeholderCrew }),
         headers: { 'Content-Type': 'application/json' }
     });
 

@@ -32,12 +32,12 @@ const handleRegister = async (event) => {
     // const moving_floor = document.querySelector('#moving-floor').value.trim();
     
     // Should this be in the Personal Information section?
-    // const accessibility = document.querySelector('#accessibility').value;
+    const accessibility = document.querySelector('#accessibility').checked;
 
     const response = await fetch('api/users/signupclient', {
         method: 'POST',
 
-        body: JSON.stringify({ first_name, last_name, email, password, gender, full_address, moving_date, items, moving_street }),
+        body: JSON.stringify({ first_name, last_name, email, password, gender, full_address, moving_date, items, moving_street, accessibility }),
 
         headers: { 'Content-Type': 'application/json' }
     });
