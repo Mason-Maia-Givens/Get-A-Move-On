@@ -105,13 +105,49 @@
     </section>
     </div> --}}
     <h2>SCHEDULED MOVES</h2>
-    {{#if allMoves}}
-        {{#each allMoves as |move| }}
-        <p>Moving {{move.client.first_name}} {{move.client.last_name}}</p>
-        <p>From {{move.client.current_address}}</p>
-        <p>To {{move.end_address}}</p>
-        <p>On {{dateFormat move.move_date}}</p>
+    {{#if confirmedMoves}}
+        {{#each confirmedMoves as |conMove| }}
+        <div id="{{conMove.client.id}}">
+            <p>Moving {{conMove.client.first_name}} {{conMove.client.last_name}}</p>
+            <p>From {{conMove.client.current_address}}</p>
+            <p>To {{conMove.end_address}}</p>
+            <p>On {{dateFormat conMove.move_date}}</p>
+            <p>Status: {{conMove.status}}</p>
+            <button id="cancel">Cancel</button>
+        </div>
         {{/each}}
     {{else}}
         <p>No moves scheduled!</p>
     {{/if}}
+
+    <h2>REQUESTED MOVES</h2>
+    {{#if pendingMoves}}
+        {{#each pendingMoves as |penMove| }}
+        <div id="{{penMove.client.id}}">
+            <p>Moving {{penMove.client.first_name}} {{penMove.client.last_name}}</p>
+            <p>From {{penMove.client.current_address}}</p>
+            <p>To {{penMove.end_address}}</p>
+            <p>On {{dateFormat penMove.move_date}}</p>
+            <p>Status: {{penMove.status}}</p>
+            <button id="accept">Accept</button>
+            <button id="decline">Decline</button>
+        </div>
+        {{/each}}
+    {{else}}
+        <p>No moves requested!</p>
+    {{/if}}
+
+    <h2>COMPLETED MOVES</h2>
+    {{#if completedMoves}}
+        {{#each completedMoves as |comMove| }}
+        <p>Moving {{comMove.client.first_name}} {{comMove.client.last_name}}</p>
+        <p>From {{comMove.client.current_address}}</p>
+        <p>To {{comMove.end_address}}</p>
+        <p>On {{dateFormat comMove.move_date}}</p>
+        <p>Status: {{comMove.status}}</p>
+        {{/each}}
+    {{else}}
+        <p>No moves completed!</p>
+    {{/if}}
+
+    <script src="/js/mover_buttons.js"></script>

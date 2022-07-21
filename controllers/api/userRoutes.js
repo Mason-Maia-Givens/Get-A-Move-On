@@ -9,8 +9,8 @@ router.post('/signupclient', async (req, res) => {
       console.log(result);
       req.body.profile_picture = result.Location;
       console.log(req.body)
-    };
-
+   };
+   
     const clientData = await Client.create({
       first_name: req.body.first_name,
       last_name: req.body.last_name,
@@ -29,7 +29,7 @@ router.post('/signupclient', async (req, res) => {
       items: req.body.items,
       start_address: req.body.full_address,
       end_address: req.body.moving_street,
-      status: "Pending"
+      status: "Created"
     });
 
     req.session.save(() => {
@@ -68,8 +68,8 @@ router.post('/signupmover', async (req, res) => {
       first_name: req.body.first_name,
       last_name: req.body.last_name,
       email: req.body.email,
-      password: req.body.placeholderPass,
-      gender: req.body.placholderGender,
+      password: req.body.password,
+      gender: req.body.gender,
       current_address: req.body.full_address,
       price_per_hour: req.body.hourly_rate,
       vehicle_model: req.body.vehicle_model,
@@ -99,6 +99,7 @@ router.post('/signupmover', async (req, res) => {
 //   console.log(result.Location);
 //   const newProfilePhoto = result.Location;
 
+
 //   await Client.update(
 //     {
 //       profile_picture: newProfilePhoto
@@ -106,6 +107,7 @@ router.post('/signupmover', async (req, res) => {
 //     {
 //       where: {
 //         id: req.session.client_id
+
 //       },
 //     });
 

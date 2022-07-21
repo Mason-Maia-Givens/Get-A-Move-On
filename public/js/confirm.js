@@ -1,9 +1,18 @@
 const confirmMove = async (event) => {
-    // event.preventDefault();
-    
+    const selcetedMoverID = event.target.parentNode.dataset.id;
+    const selcetedMoverHourly = event.target.parentNode.dataset.hourly;
+
     const response = await fetch('api/moves/confirm', {
-        method: 'POST'
+        method: 'PUT',
+        body: JSON.stringify({ selcetedMoverID, selcetedMoverHourly }),
+        headers: { 'Content-Type': 'application/json' }
     })
 }
 
-document.querySelector('.confirm').addEventListener('click', confirmMove);
+// document.querySelector('.confirm').addEventListener('click', confirmMove);
+
+document.addEventListener("click", function (event) {
+    if (event.target.className === "confirm") {
+        confirmMove(event)
+    }
+})

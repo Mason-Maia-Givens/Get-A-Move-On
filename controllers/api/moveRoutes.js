@@ -1,51 +1,86 @@
 const router = require('express').Router();
-const { Move, Client } = require('../../models');
+const { Move, Client, Mover } = require('../../models');
 
-// Create a new move
-router.post('/confirm', async (req, res) => {
+// Complete a move instance when mover is selected
+router.put('/confirm', async (req, res) => {
   try {
-    const clientData = await Client.findOne({ where: {id: req.session.client_id} })
+    const clientMoveData = await Move.findOne({
+      where: {
+        client_id: req.session.client_id,
+        status: "Created"
+      }
+    });
+  
+    clientMoveData.mover_id = req.body.selcetedMoverID;
+    clientMoveData.price_per_hour = req.body.selcetedMoverHourly;
+    clientMoveData.status = "Pending";
 
-    console.log(clientData.dataValues);
+    await clientMoveData.save()
 
-    // const newMove = await Move.create({
-      
-    //   client_id: req.session.client_id,
-    //   mover_id: 1,
-    //   move_date: "2022-10-01",
-    //   price_per_hour: 10.00,
-    //   big_items: 5,
-    //   small_items: 15,
-    //   stairs_elevator: "elevator",
-    //   start_address: "Another Fake Address",
-    //   end_address: "Still a Fake Address"
-    // });
-
-    res.status(200).json(newMove);
+    res.status(200).json(clientMoveData);
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
-// Cancel an existing active move
-router.delete('/:id', async (req, res) => {
+router.put('/accept', async (req, res) => {
   try {
-    const moveData = await Move.destroy({
+    const moveData = await Move.findOne({
       where: {
-        id: req.params.id,
-        user_id: req.session.user_id
-        // mover_id: 
-      },
+        client_id: req.body.clientID,
+        status: "Pending"
+      }
     });
 
-    if (!moveData) {
-      res.status(404).json({ message: 'Your move could not be found!' });
-      return;
-    }
+    moveData.status = "Confirmed";
+
+    await moveData.save()
 
     res.status(200).json(moveData);
   } catch (err) {
-    res.status(500).json(err);
+    res.status(400).json(err);
+  }
+});
+
+router.put('/decline', async (req, res) => {
+  try {
+    const pendingMoveData = await Move.findOne({
+      where: {
+        client_id: req.body.clientID,
+        status: "Pending"
+      }
+    });
+
+    pendingMoveData.mover_id = null;
+    pendingMoveData.price_per_hour = null;
+    pendingMoveData.status = "Created";
+
+    await pendingMoveData.save()
+    
+    res.status(200).json(pendingMoveData);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+router.put('/cancel', async (req, res) => {
+  try {
+    const confirmedMoveData = await Move.findOne({
+      where: {
+        client_id: req.body.clientID,
+        status: "Confirmed"
+      }
+    });
+
+    confirmedMoveData.mover_id = null;
+    confirmedMoveData.price_per_hour = null;
+    confirmedMoveData.status = "Created";
+
+    await confirmedMoveData.save()
+    
+    res.status(200).json(confirmedMoveData);
+  } catch (err) {
+    res.status(400).json(err);
   }
 });
 

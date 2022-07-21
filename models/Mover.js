@@ -58,11 +58,11 @@ Mover.init(
             allowNull: true,
         },
         drivers_license: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false,
         },
-        size_of_crew: {
-            type: DataTypes.INTEGER,
+        crew: {
+            type: DataTypes.STRING,
             allowNull: false,
         },
         profile_picture: {

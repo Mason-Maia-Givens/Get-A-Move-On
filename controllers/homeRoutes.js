@@ -47,12 +47,10 @@ router.get('/dashboard', async (req, res) => {
       // Client info based on session
       const clientData = await Client.findOne({ where: { id: req.session.client_id } });
 
-      // Determine if move is confirmed or not
-      const pendingMoveData = await Move.findOne({
+      // Get client move data
+      const moveData = await Move.findOne({
         where: { client_id: req.session.client_id }
       });
-      
-      console.log(pendingMoveData);
 
       // See all available Movers
       const moverData = await Mover.findAll( {
@@ -61,14 +59,14 @@ router.get('/dashboard', async (req, res) => {
 
       // Prepare data for rendering
       const currClient = clientData.dataValues;
-      const pendingMove = pendingMoveData.dataValues;
+      const moveStatus = moveData.dataValues;
       const allMovers = moverData.map((mover) => mover.get({ plain: true }));
 
       // Render Client template with readied data
-      if (pendingMoveData.dataValues.status === "Pending") {
+      if (moveStatus.status === "Created") {
         res.render('clientdash', {
           currClient,
-          pendingMove,
+          moveStatus,
           allMovers,
         });
       } else {
@@ -79,32 +77,58 @@ router.get('/dashboard', async (req, res) => {
           include: [{ model: Mover }]
         });
 
-        const clientMove = confirmedMoveData.dataValues;
+        const confirmedClientMove = confirmedMoveData.dataValues;
         const moverMove = confirmedMoveData.mover.dataValues;
 
         res.render('clientdash', {
           currClient,
-          clientMove,
+          confirmedClientMove,
           moverMove,
         });
       }
-
     }
     else if (req.session.mover_id) {
       //MOVER DASH
       // Find all confirmed Moves
-      const moveData = await Move.findAll({ 
-        where: { mover_id: req.session.mover_id},
+      const confirmedMoveData = await Move.findAll({ 
+        where: { 
+          mover_id: req.session.mover_id,
+          status: "Confirmed"
+        },
         attributes: { exclude: ['id', 'mover_id', 'price_per_hour'] },
         include: [{ model: Client}]
       });
 
+      // Find all pending Moves
+      const pendingMoveData = await Move.findAll({
+        where: { 
+          mover_id: req.session.mover_id,
+          status: "Pending"
+        },
+        attributes: { exclude: ['id', 'mover_id', 'price_per_hour'] },
+        include: [{ model: Client}]
+      })
+
+      // Find all completed Moves
+      const completedMoveData = await Move.findAll({
+        where: { 
+          mover_id: req.session.mover_id,
+          status: "Completed"
+        },
+        attributes: { exclude: ['id', 'mover_id', 'price_per_hour'] },
+        include: [{ model: Client}]
+      })
+
       // Prepare data for rendering
-      const allMoves = moveData.map((move) => move.get({ plain: true }));
+      const confirmedMoves = confirmedMoveData.map((move) => move.get({ plain: true }));
+      const pendingMoves = pendingMoveData.map((move) => move.get({ plain: true }));
+      const completedMoves = completedMoveData.map((move) => move.get({ plain: true }));
       
       // Render Mover template with readied data
       res.render('moverdash', {
-        allMoves
+        confirmedMoves,
+        pendingMoves,
+        completedMoves
       });
     }
     else {
