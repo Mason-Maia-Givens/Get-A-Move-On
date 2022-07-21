@@ -1,4 +1,4 @@
-{{!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -17,15 +17,15 @@
         <li>
           <a href="/" class="text-gray-900 dark:text-blue-300 hover:underline" aria-current="page">Home</a>
         </li>
-        {{#if logged_in}}
+      
         <li>
           <id= "logout" class="text-gray-900 dark:text-white hover:underline">Log Out</a>
         </li>
-        {{else}}
+      
         <li>
           <a href="/login" class="text-gray-900 dark:text-white hover:underline">Log In </a>
         </li>
-        {{/if}}
+    
         <li>
           <a href="/dashboard" class="text-gray-900 dark:text-white hover:underline">Dashboard</a>
         </li>
@@ -38,8 +38,7 @@
   {{{ body }}}
 </body>
 
-{{#if logged_in}}
-<script src="/js/logout.js"></script>
-{{/if}}
 
-</html> --}}
+<script src="/js/logout.js"></script>
+
+</html>
