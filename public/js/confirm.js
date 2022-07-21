@@ -1,11 +1,6 @@
 const confirmMove = async (event) => {
-    // event.preventDefault();
-    const targetData =event.target.parentNode.id;
-
-    const moverID = document.getElementById(targetData);
-
-    const selcetedMoverID = moverID.dataset.id;
-    const selcetedMoverHourly = moverID.dataset.hourly;
+    const selcetedMoverID = event.target.parentNode.dataset.id;
+    const selcetedMoverHourly = event.target.parentNode.dataset.hourly;
 
     const response = await fetch('api/moves/confirm', {
         method: 'PUT',
@@ -14,4 +9,10 @@ const confirmMove = async (event) => {
     })
 }
 
-document.querySelector('.confirm').addEventListener('click', confirmMove);
+// document.querySelector('.confirm').addEventListener('click', confirmMove);
+
+document.addEventListener("click", function (event) {
+    if (event.target.className === "confirm") {
+        confirmMove(event)
+    }
+})

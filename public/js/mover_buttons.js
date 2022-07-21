@@ -1,7 +1,3 @@
-const acceptButton = document.getElementById("accept");
-const declineButton = document.getElementById("decline");
-const cancelButton = document.getElementById("cancel");
-
 const moverConfirm = async (event) => {
     const clientID = event.target.parentNode.id;
 
@@ -32,12 +28,20 @@ const moverCancel = async (event) => {
     })
 };
 
-if (acceptButton) {
-    document.querySelector("#accept").addEventListener("click", moverConfirm);
-}
-if (declineButton) {
-    document.querySelector("#decline").addEventListener("click", moverDecline);
-}
-if (cancelButton) {
-    document.querySelector("#cancel").addEventListener("click", moverCancel);
-}
+document.addEventListener("click", function (event) {
+    if (event.target.id == "accept") {
+        moverConfirm(event)
+    }
+})
+
+document.addEventListener("click", function (event) {
+    if (event.target.id == "decline") {
+        moverDecline(event)
+    }
+})
+
+document.addEventListener("click", function (event) {
+    if (event.target.id == "cancel") {
+        moverCancel(event)
+    }
+})

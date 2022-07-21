@@ -4,14 +4,14 @@ const { uploadFile } = require('../../imageupload');
 
 router.post('/signupclient', async (req, res) => {
   try {
-    if (req.file) { 
-      const result = await uploadFile(req.file);
-      console.log(result);
-      req.body.profile_picture = result.Location;
-      console.log(req.body)
-    };
+    // if (req.file) { 
+    //   const result = await uploadFile(req.file);
+    //   console.log(result);
+    //   req.body.profile_picture = result.Location;
+    //   console.log(req.body)
+    // };
 
-    const userData = await User.create(req.body);
+    // const userData = await User.create(req.body);
     
     const clientData = await Client.create({
       first_name: req.body.first_name,
