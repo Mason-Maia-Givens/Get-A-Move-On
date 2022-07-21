@@ -6,15 +6,9 @@ const handleRegister = async (event) => {
     const last_name = document.querySelector('#last-name').value.trim();
     const gender = document.querySelector('#gender').value.trim();
     const email = document.querySelector('#email-address').value.trim();
-    // const password = document.querySelector('').value.trim();
-    const placeholderPass = "pleasereplacethis";
-    // const gender = document.querySelector('').value.trim();
-    const placholderGender = "F";
-    //profile picture
-    const profile_picture = document.querySelector(`#profilePicture`).files[0];
-
     const password = document.querySelector('#password').value.trim();
-
+    //profile picture
+    // const profile_picture = document.querySelector(`#profilePicture`).files[0];
 
     // Move information
     // Current Residence
@@ -43,7 +37,7 @@ const handleRegister = async (event) => {
     const response = await fetch('api/users/signupclient', {
         method: 'POST',
 
-        body: JSON.stringify({ first_name, last_name, email, password, gender, full_address, moving_date, items, moving_street, profile_picture }),
+        body: JSON.stringify({ first_name, last_name, email, password, gender, full_address, moving_date, items, moving_street }),
 
         headers: { 'Content-Type': 'application/json' }
     });

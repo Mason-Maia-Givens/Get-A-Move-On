@@ -7,6 +7,12 @@ const confirmMove = async (event) => {
         body: JSON.stringify({ selcetedMoverID, selcetedMoverHourly }),
         headers: { 'Content-Type': 'application/json' }
     })
+    if (response.ok) {
+        document.location.replace('/dashboard');
+    } else {
+        alert(response.statusText);
+    }
+
 }
 
 // document.querySelector('.confirm').addEventListener('click', confirmMove);

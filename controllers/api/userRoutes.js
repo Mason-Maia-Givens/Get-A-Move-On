@@ -15,10 +15,10 @@ router.post('/signupclient', async (req, res) => {
       first_name: req.body.first_name,
       last_name: req.body.last_name,
       email: req.body.email,
-      password: req.body.placeholderPass,
-      gender: req.body.placholderGender,
+      password: req.body.password,
+      gender: req.body.gender,
       current_address: req.body.full_address,
-      profile_picture: req.body.profile_picture
+      // profile_picture: req.body.profile_picture
     });
     
     const firstMove = await Move.create({
@@ -38,17 +38,6 @@ router.post('/signupclient', async (req, res) => {
 
       res.status(200).json(clientData);
     });
-
-      // client_id: req.session.client_id,
-      // mover_id: 1,
-      // move_date: "2022-10-01",
-      // price_per_hour: 10.00,
-      // big_items: 5,
-      // small_items: 15,
-      // stairs_elevator: "elevator",
-      // start_address: "Another Fake Address",
-      // end_address: "Still a Fake Address"
-
   } catch (err) {
     // Make this more descriptive when everything has come together
     res.status(400).json(err);

@@ -6,6 +6,11 @@ const moverConfirm = async (event) => {
         body: JSON.stringify({ clientID }),
         headers: { 'Content-Type': 'application/json' }
     })
+    if (response.ok) {
+        document.location.replace('/dashboard');
+    } else {
+        alert(response.statusText);
+    }
 };
 
 const moverDecline = async (event) => {
@@ -16,6 +21,11 @@ const moverDecline = async (event) => {
         body: JSON.stringify({ clientID }),
         headers: { 'Content-Type': 'application/json' }
     })
+    if (response.ok) {
+        document.location.replace('/dashboard');
+    } else {
+        alert(response.statusText);
+    }
 };
 
 const moverCancel = async (event) => {
@@ -26,6 +36,11 @@ const moverCancel = async (event) => {
         body: JSON.stringify({ clientID }),
         headers: { 'Content-Type': 'application/json' }
     })
+    if (response.ok) {
+        document.location.replace('/dashboard');
+    } else {
+        alert(response.statusText);
+    }
 };
 
 document.addEventListener("click", function (event) {
