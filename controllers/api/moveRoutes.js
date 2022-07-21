@@ -84,4 +84,23 @@ router.put('/cancel', async (req, res) => {
   }
 });
 
+router.put('/complete', async (req, res) => {
+  try {
+    const confirmedMoveData = await Move.findOne({
+      where: {
+        client_id: req.body.clientID,
+        status: "Confirmed"
+      }
+    });
+
+    confirmedMoveData.status = "Completed";
+
+    await confirmedMoveData.save()
+    
+    res.status(200).json(confirmedMoveData);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 module.exports = router;

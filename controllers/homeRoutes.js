@@ -47,10 +47,17 @@ router.get('/dashboard', async (req, res) => {
       // Client info based on session
       const clientData = await Client.findOne({ where: { id: req.session.client_id } });
 
-      // Get client move data
-      const moveData = await Move.findOne({
-        where: { client_id: req.session.client_id }
+      // Get current move data
+      const currentMoveData = await Move.findOne({
+        where: { client_id: req.session.client_id },
+        status: "Created"
       });
+
+      // Get past move data
+      // const pastMoveData = await Move.findOne({
+      //   where: { client_id: req.session.client_id },
+      //   status: "Completed"
+      // });
 
       // See all available Movers
       const moverData = await Mover.findAll( {
@@ -59,14 +66,16 @@ router.get('/dashboard', async (req, res) => {
 
       // Prepare data for rendering
       const currClient = clientData.dataValues;
-      const moveStatus = moveData.dataValues;
+      const currentMove = currentMoveData.dataValues;
+      // const pastMoves = pastMoveData.map((move) => move.get({ plain: true }));
       const allMovers = moverData.map((mover) => mover.get({ plain: true }));
 
       // Render Client template with readied data
-      if (moveStatus.status === "Created") {
+      if (currentMove.status === "Created") {
         res.render('clientdash', {
           currClient,
-          moveStatus,
+          currentMove,
+          // pastMoves,
           allMovers,
         });
       } else {
@@ -83,6 +92,7 @@ router.get('/dashboard', async (req, res) => {
         res.render('clientdash', {
           currClient,
           confirmedClientMove,
+          // pastMoves,
           moverMove,
         });
       }

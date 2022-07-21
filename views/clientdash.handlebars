@@ -94,6 +94,14 @@
     </div>
     </section>
     </div> --}}
+    {{#if pastMoves}}
+        <h2>YOUR PAST MOVES</h2>
+        {{#each pastMoves as |pastMove|}}
+        <p>{{pastMove.move_date}}</p>
+        {{!-- <p>{{pastMove.move_date}}</p> --}}
+        {{/each}}
+    {{/if}}
+
     <h2>YOUR UPCOMING MOVE</h2>
     {{#if confirmedClientMove}}
         <div id="confirmed-move">
@@ -104,8 +112,8 @@
         </div>
     {{else}}
         <div id="created-move"></div>
-        <p>Moving to {{moveStatus.end_address}}</p>
-        <p>On {{dateFormat moveStatus.move_date}}</p>
+        <p>Moving to {{currentMove.end_address}}</p>
+        <p>On {{dateFormat currentMove.move_date}}</p>
         </div>
 
         <h2>ALL AVAILABLE MOVERS</h2>

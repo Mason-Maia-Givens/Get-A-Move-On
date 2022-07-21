@@ -114,6 +114,7 @@
             <p>On {{dateFormat conMove.move_date}}</p>
             <p>Status: {{conMove.status}}</p>
             <button id="cancel">Cancel</button>
+            <button id="complete">Completed</button>
         </div>
         {{/each}}
     {{else}}
@@ -140,7 +141,7 @@
     <h2>COMPLETED MOVES</h2>
     {{#if completedMoves}}
         {{#each completedMoves as |comMove| }}
-        <p>Moving {{comMove.client.first_name}} {{comMove.client.last_name}}</p>
+        <p>Moved {{comMove.client.first_name}} {{comMove.client.last_name}}</p>
         <p>From {{comMove.client.current_address}}</p>
         <p>To {{comMove.end_address}}</p>
         <p>On {{dateFormat comMove.move_date}}</p>
