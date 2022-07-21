@@ -58,6 +58,7 @@ router.post('/signupclient', async (req, res) => {
 
 router.post('/signupmover', async (req, res) => {
   try {
+    console.log(req.body);
     const moverData = await Mover.create({
       first_name: req.body.first_name,
       last_name: req.body.last_name,
@@ -68,7 +69,7 @@ router.post('/signupmover', async (req, res) => {
       price_per_hour: req.body.hourly_rate,
       vehicle_model: req.body.vehicle_model,
       drivers_license: req.body.drivers_license,
-      size_of_crew: req.body.placeholderCrew
+      crew: req.body.placeholderCrew
 
     });
     
