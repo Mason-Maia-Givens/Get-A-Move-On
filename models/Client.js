@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 class Client extends Model {
     checkPassword(loginPw) {
         return bcrypt.compareSync(loginPw, this.password);
-      }
+    }
 }
 
 Client.init(
@@ -47,10 +47,10 @@ Client.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        photo: {
+        profile_picture: {
             type: DataTypes.STRING,
             allowNull: false,
-            defaultValue: ''
+            defaultValue: 'https://getamoveon.s3.amazonaws.com/blank-profile-picture.png'
         },
     },
     {
