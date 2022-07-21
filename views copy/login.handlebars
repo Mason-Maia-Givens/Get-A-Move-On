@@ -2,25 +2,45 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
-</head>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documeent</title>
+    <title>Document</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
 </head>
 
+
+<!--Nav bar top-->
+
+</header>
+
 <body>
+    <nav class="bg-gray-50 dark:bg-gray-700">
+        <div class="py-3 px-4 mx-auto max-w-screen-xl md:px-6">
+            <div class="flex items-center">
+                <ul class="flex flex-row mt-0 mr-6 space-x-8 text-sm font-medium">
+                    <li>
+                        <a href="/" class="text-gray-900 dark:text-blue-300 hover:underline"
+                            aria-current="page">Home</a>
+                    </li>
+
+                    <li>
+                        <id= "logout" class="text-gray-900 dark:text-white hover:underline">Log Out</a>
+                    </li>
+
+                    <li>
+                        <a href="/login" class="text-gray-900 dark:text-white hover:underline">Log In </a>
+                    </li>
+
+                    <li>
+                        <a href="/dashboard" class="text-gray-900 dark:text-white hover:underline">Dashboard</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
 
     <div class="py-5">
         <div class="border-t border-gray-200"></div>
@@ -120,7 +140,7 @@
                 <div class="p-6 border border-gray-150 sm:rounded-md">
 
                     <label class="block mb-6">
-                        <span class="text-gray-700">Moving Address</span>
+                        <span class="text-gray-700">Moving Address?</span>
                         <input name="name" type="text" id="moving-address" class="
             block
             w-full
@@ -131,8 +151,7 @@
             focus:border-indigo-300
             focus:ring
             focus:ring-indigo-200
-            focus:ring-opacity-50"
-            placeholder="123 green road" />
+            focus:ring-opacity-50" placeholder="123 green road" />
                     </label>
                     <label class="block mb-6">
                         <span id="moving-floor" class="text-gray-700">Floor?</span>
@@ -146,8 +165,7 @@
             focus:border-indigo-300
             focus:ring
             focus:ring-indigo-200
-            focus:ring-opacity-50"
-            placeholder="10th" />
+            focus:ring-opacity-50" placeholder="10th" />
                     </label>
                     <label class="block mb-6">
                         <span class="text-gray-700">Moving items total estimate</span>
@@ -161,8 +179,7 @@
             focus:border-indigo-300
             focus:ring
             focus:ring-red-100
-            focus:ring-opacity-50"
-            placeholder="10 boxes, one dresser, 1 TV" />
+            focus:ring-opacity-50" placeholder="10 boxes, one dresser, 1 TV" />
                     </label>
                     <label class="block mb-6">
                         <span class="text-gray-700">When is your desired moving date ?</span>
@@ -203,38 +220,20 @@
                     </label>
                     <!-- car -->
                     <!-- radio buttons -->
+
+                    </li>
+                    </ul>
+
+
+                    <!-- radio button -->
                     <div class="mb-6">
-                        <span class="text-gray-700">Do you have a car?</span>
+                        <span class="text-gray-700">Do you have any accessibility issues that will not allow
+                            you to help
+                            move?</span>
                         <div class="mt-2">
-                            <ul class="grid grid-cols-3 gap-x-5 m-10 max-w-md mx-auto">
-                                <li class="relative">
-                                    <input class="sr-only peer" type="radio" value="yes" name="answer" id="answer_yes">
-                                    <label
-                                        class="flex p-5 bg-white border border-gray-300 rounded-lg cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:ring-black peer-checked:ring-2 peer-checked:border-transparent"
-                                        for="answer_yes">Yes</label>
-                                    <div class="absolute hidden w-5 h-5 peer-checked:block top-5 right-3">
-                                    </div>
-                                <li class="relative">
-                                    <input class="sr-only peer" type="radio" value="no" name="answer" id="answer_no">
-                                    <label
-                                        class="flex p-5 bg-white border border-gray-300 rounded-lg cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:ring-black peer-checked:ring-2 peer-checked:border-transparent"
-                                        for="answer_no">No</label>
-
-                                    <div class="absolute hidden w-5 h-5 peer-checked:block top-5 right-3">
-                                    </div>
-                                </li>
-                            </ul>
-
-
-                            <!-- radio button -->
-                            <div class="mb-6">
-                                <span class="text-gray-700">Do you have any accessibility issues that will not allow
-                                    you to help
-                                    move?</span>
-                                <div class="mt-2">
-                                    <div>
-                                        <label class="inline-flex items-center">
-                                            <input name="season" type="radio" id="accessibility" class="
+                            <div>
+                                <label class="inline-flex items-center">
+                                    <input name="season" type="radio" class="
                   text-black
                   border-gray-300
                   rounded-full
@@ -245,12 +244,12 @@
                   focus:ring-indigo-200
                   focus:ring-opacity-50
                 " checked />
-                                            <span class="ml-2">Yes</span>
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <label class="inline-flex items-center">
-                                            <input name="season" type="radio" class="
+                                    <span class="ml-2">Yes</span>
+                                </label>
+                            </div>
+                            <div>
+                                <label class="inline-flex items-center">
+                                    <input name="season" type="radio" class="
                   text-black
                   border-gray-300
                   rounded-full
@@ -261,55 +260,54 @@
                   focus:ring-indigo-200
                   focus:ring-opacity-50
                 " />
-                                            <span class="ml-2">No</span>
-                                        </label>
-                                    </div>
-                                </div>
+                                    <span class="ml-2">No</span>
+                                </label>
                             </div>
-                            <div class="mb-6">
-                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                    </div>
 
 
-                            <!-- upload photo -->
-                            <div class="flex justify-center mt-8">
-                                <div class="rounded-lg bg-gray-50 lg:w-1/2">
-                                    <div class="m-4">
-                                        <label class="inline-block mb-2 text-black">Upload
-                                            Image(jpg,png,jpeg)</label>
-                                        <div class="flex items-center justify-center w-full">
-                                            <label
-                                                class="flex flex-col w-full h-32 border-4 border-dashed hover:bg-gray-100 hover:border-gray-300">
-                                                <div class="flex flex-col items-center justify-center pt-7">
-                                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                                        class="w-12 h-12 text-gray-400 group-hover:text-gray-600"
-                                                        viewBox="0 0 20 20" fill="currentColor">
-                                                        <path fill-rule="evenodd"
-                                                            d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
-                                                            clip-rule="evenodd" />
-                                                    </svg>
-                                                    <p
-                                                        class="pt-1 text-sm tracking-wider text-gray-400 group-hover:text-gray-600">
-                                                        Select a photo</p>
-                                                </div>
-                                                <input type="file" class="opacity-0" id="profilePicture" />
-                                            </label>
+                    <!-- upload photo -->
+                    <div class="flex justify-center mt-8">
+                        <div class="rounded-lg bg-gray-50 lg:w-1/2">
+                            <div class="m-4">
+                                <label class="inline-block mb-2 text-black">Upload
+                                    Image(jpg,png,jpeg)</label>
+                                <div class="flex items-center justify-center w-full">
+                                    <label
+                                        class="flex flex-col w-full h-32 border-4 border-dashed hover:bg-gray-100 hover:border-gray-300">
+                                        <div class="flex flex-col items-center justify-center pt-7">
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                class="w-12 h-12 text-gray-400 group-hover:text-gray-600"
+                                                viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd"
+                                                    d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                            <p
+                                                class="pt-1 text-sm tracking-wider text-gray-400 group-hover:text-gray-600">
+                                                Select a photo</p>
                                         </div>
-                                    </div>
-                                    <div class="flex p-2 space-x-4">
-                                        <button class="px-4 py-2 text-white bg-red-500 rounded shadow-xl">Cancel
-                                        </button>
-                                        <button
-                                            class="px-4 py-2 text-white bg-blue-500 rounded shadow-xl">Upload</button>
-                                    </div>
+                                        <input type="file" class="opacity-0" id="profilePicture" />
+                                    </label>
                                 </div>
                             </div>
-                            <!-- divide -->
-                            <div class="py-5">
-                                <div class="border-t border-gray-200"></div>
+                            <div class="flex p-2 space-x-4">
+                                <button class="px-4 py-2 text-white bg-red-500 rounded shadow-xl">Cancel
+                                </button>
+                                <button class="px-4 py-2 text-white bg-blue-500 rounded shadow-xl">Upload</button>
                             </div>
+                        </div>
+                    </div>
+                    <!-- divide -->
+                    <div class="py-5">
+                        <div class="border-t border-gray-200"></div>
+                    </div>
 
-                            <div class="mb-6">
-                                <button type="submit" id="register" class="
+                    <div class="mb-6">
+                        <button type="submit" id="register" class="
             h-10
             px-5
             text-indigo-100
@@ -320,18 +318,19 @@
             focus:shadow-outline
             hover:bg-blue-500
           ">
-                                    Send Answers
-                                </button>
-                            </div>
-                            <div>
-                                <div class="mt-2 text-gray-700 text-right text-xs">
-                                </div>
-                            </div>
-                            </form>
+                            Send Answers
+                        </button>
+                    </div>
+                    <div>
+                        <div class="mt-2 text-gray-700 text-right text-xs">
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>
+        </div>
+    </div>
 </body>
 <script src="/js/register_client.js"></script>
+
 </html>
