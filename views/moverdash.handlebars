@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+
+
+
+    <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -39,34 +42,6 @@
 
 <main>
 
-    <div class="flex flex-col md:flex-row">
-        <!--Nav bar side and bottom messages and payment -->
-            <div
-                class="bg-black shadow-xl h-20 fixed bottom-0 mt-12 md:relative md:h-screen z-10 w-full md:w-48 content-center">
-                <div
-                    class="md:mt-12 md:w-48 md:fixed md:left-0 md:top-0 content-center md:content-start text-left justify-between">
-                    <ul class="list-reset flex flex-row md:flex-col pt-3 md:py-3 px-1 md:px-2 text-center md:text-left">
-                        <li class="mr-3 flex-1">
-                            <a href="#"
-                                class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-purple-500">
-                                <i class="fa fa-envelope pr-0 md:pr-3"></i><span
-                                    class="pb-1 md:pb-0 text-xs md:text-base text-gray-400 md:text-gray-200 block md:inline-block">Messages</span>
-                            </a>
-                        </li>
-
-                        <li class="mr-3 flex-1">
-                            <a href="#"
-                                class="block py-1 md:py-3 pl-0 md:pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-red-500">
-                                <i class="fa fa-wallet pr-0 md:pr-3"></i><span
-                                    class="pb-1 md:pb-0 text-xs md:text-base text-gray-400 md:text-gray-200 block md:inline-block">Payments</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-
-            </div>
-            </nav>
             <section>
                 <div class=" w-full md:w-1/2 xl:w-1/3 p-6">
                 </div>
@@ -103,10 +78,15 @@
     </div>
     </div>
     </section>
-    </div> --}}
-    <h2>SCHEDULED MOVES</h2>
+    </div> 
+
+    <div class="w-full md:w-1/2 xl:w-1/3 p-6">
+    <div class="bg-gradient-to-b from-pink-100 to-yellow-100 border-b-4 border-pink-300 rounded-lg shadow-xl p-5 flex">
+   <div class="font-bold uppercase text-gray-600 text-center"> <h2> SCHEDULED MOVES</h2>
     {{#if confirmedMoves}}
         {{#each confirmedMoves as |conMove| }}
+        <div class="flex flex-row items-center">
+     <div class="flex-shrink pr-4">
         <div id="{{conMove.client.id}}">
             <p>Moving {{conMove.client.first_name}} {{conMove.client.last_name}}</p>
             <p>From {{conMove.client.current_address}}</p>
@@ -118,10 +98,10 @@
         </div>
         {{/each}}
     {{else}}
-        <p>No moves scheduled!</p>
+        <p class="font-bold uppercase text-black"">No moves scheduled!</p>
     {{/if}}
 
-    <h2>REQUESTED MOVES</h2>
+    <h2 class="font-bold uppercase text-gray-600 text-center">REQUESTED MOVES</h2>
     {{#if pendingMoves}}
         {{#each pendingMoves as |penMove| }}
         <div id="{{penMove.client.id}}">
@@ -136,17 +116,17 @@
         </div>
         {{/each}}
     {{else}}
-        <p>No moves requested!</p>
+        <p class="font-bold uppercase text-black">No moves requested!</p>
     {{/if}}
 
-    <h2>COMPLETED MOVES</h2>
+    <h2 class="font-bold uppercase text-gray-600 text-center">COMPLETED MOVES</h2>
     {{#if completedMoves}}
         {{#each completedMoves as |comMove| }}
-        <p>Moving {{comMove.client.first_name}} {{comMove.client.last_name}}</p>
-        <p>From {{comMove.client.current_address}}</p>
-        <p>To {{comMove.end_address}}</p>
-        <p>On {{dateFormat comMove.move_date}}</p>
-        <p>Status: {{comMove.status}}</p>
+        <p class="font-bold uppercase text-black">Moving {{comMove.client.first_name}} {{comMove.client.last_name}}</p>
+        <p class="font-bold uppercase text-black">From {{comMove.client.current_address}}</p>
+        <p class="font-bold uppercase text-black">To {{comMove.end_address}}</p>
+        <p class="font-bold uppercase text-black">On {{dateFormat comMove.move_date}}</p>
+        <p class="font-bold uppercase text-black">Status: {{comMove.status}}</p>
         {{/each}}
     {{else}}
         <p>No moves completed!</p>
