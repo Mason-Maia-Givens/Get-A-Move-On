@@ -26,7 +26,8 @@ AS A user with a vehicle or extra time
 I WANT to be able to offer my services to provide moving help 
 SO THAT I can earn extra money and help out others
 ```
-![e![ezgif com-gif-maker (7)](https://user-images.githubusercontent.com/101853344/180339604-67e2b255-abb1-4f16-bd45-362580e67f01.gif)
+![ezgif com-gif-maker (7)](https://user-images.githubusercontent.com/101853344/180339789-abbed07c-b25c-47be-80d1-9d0de00e33c8.gif)
+```
 zgif com-gif-maker (6)](https://user-images.githubusercontent.com/101853344/180338948-59adb3f8-cb36-4c83-8b8d-6260374a7e67.gif)
 ## Technologies Used 
 - Node.JS
