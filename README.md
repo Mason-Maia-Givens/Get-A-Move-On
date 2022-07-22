@@ -28,7 +28,7 @@ SO THAT I can earn extra money and help out others
 ```
 ![ezgif com-gif-maker (7)](https://user-images.githubusercontent.com/101853344/180339789-abbed07c-b25c-47be-80d1-9d0de00e33c8.gif)
 ```
-zgif com-gif-maker (6)](https://user-images.githubusercontent.com/101853344/180338948-59adb3f8-cb36-4c83-8b8d-6260374a7e67.gif)
+
 ## Technologies Used 
 - Node.JS
 - Heroku
@@ -41,6 +41,8 @@ zgif com-gif-maker (6)](https://user-images.githubusercontent.com/101853344/1803
 
 ## Functions
 - Log In
+![Screen Shot 2022-07-21 at 19 57 18](https://user-images.githubusercontent.com/101853344/180340059-ed2ad33a-93eb-4563-960b-cda011c6f204.png)
+
 
 - Profiles for users and movers
 
