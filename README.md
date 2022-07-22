@@ -27,7 +27,8 @@ I WANT to be able to offer my services to provide moving help
 SO THAT I can earn extra money and help out others
 ```
 ![ezgif com-gif-maker (7)](https://user-images.githubusercontent.com/101853344/180339789-abbed07c-b25c-47be-80d1-9d0de00e33c8.gif)
-```
+
+![Screen Shot 2022-07-21 at 19 57 18](https://user-images.githubusercontent.com/101853344/180340166-daf6c745-179a-4f09-a918-1fb1e86b7921.png)
 
 ## Technologies Used 
 - Node.JS
@@ -41,7 +42,7 @@ SO THAT I can earn extra money and help out others
 
 ## Functions
 - Log In
-![Screen Shot 2022-07-21 at 19 57 18](https://user-images.githubusercontent.com/101853344/180340059-ed2ad33a-93eb-4563-960b-cda011c6f204.png)
+
 
 
 - Profiles for users and movers
