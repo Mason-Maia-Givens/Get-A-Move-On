@@ -71,7 +71,8 @@ SO THAT I can earn extra money and help out others
 	- Start and Stop move 
     - Map 
 	- Reporting conduct  // instant shut down	
-    - Admin support in case of emergency 
+   ![ezgif com-gif-maker (6)](https://user-images.githubusercontent.com/101853344/180338948-59adb3f8-cb36-4c83-8b8d-6260374a7e67.gif)
+ - Admin support in case of emergency 
 
 ## Github
 https://github.com/Mason-Maia-Givens/Get-A-Move-On
