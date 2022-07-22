@@ -26,7 +26,7 @@ AS A user with a vehicle or extra time
 I WANT to be able to offer my services to provide moving help 
 SO THAT I can earn extra money and help out others
 ```
-
+![ezgif com-gif-maker (6)](https://user-images.githubusercontent.com/101853344/180338948-59adb3f8-cb36-4c83-8b8d-6260374a7e67.gif)
 ## Technologies Used 
 - Node.JS
 - Heroku
@@ -71,7 +71,7 @@ SO THAT I can earn extra money and help out others
 	- Start and Stop move 
     - Map 
 	- Reporting conduct  // instant shut down	
-   ![ezgif com-gif-maker (6)](https://user-images.githubusercontent.com/101853344/180338948-59adb3f8-cb36-4c83-8b8d-6260374a7e67.gif)
+   
  - Admin support in case of emergency 
 
 ## Github
