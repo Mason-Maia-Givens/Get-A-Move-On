@@ -2,19 +2,19 @@ const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
-const multer = require('multer');
-const { checkFileType } = require('./imageupload');
+// const multer = require('multer');
+// const { checkFileType } = require('./imageupload');
 
 // image upload middleware
-const upload = multer({
-  limits: {
-    //max image size 2MB
-    fileSize: 2000000,
-    fileFilter: function (req, file, cb) {
-      checkFileType(file, cb);
-    }
-  }
-});
+// const upload = multer({
+//   limits: {
+//     //max image size 2MB
+//     fileSize: 2000000,
+//     fileFilter: function (req, file, cb) {
+//       checkFileType(file, cb);
+//     }
+//   }
+// });
 
 // MVC-style routes
 const routes = require('./controllers');
@@ -53,7 +53,7 @@ app.set('view engine', 'handlebars');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(upload.single('profile_picture'))
+// app.use(upload.single('profile_picture'))
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);

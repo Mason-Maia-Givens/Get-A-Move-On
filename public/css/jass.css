@@ -1,10 +1,30 @@
-.mover-card-holder {
+h2 {
+    text-align: center;
+    margin-top: 3px;
+}
+
+#all-movers {
     display: flex;
+    flex-direction: column;
+}
+
+#mover-cards {
+    display: flex;
+    flex-direction: row;
+}
+
+#created-move {
+    flex: 1 1 0px;
+}
+
+.dash-section {
+    flex: 1 1 0px;
 }
 
 .mover-card {
     flex-direction: column;
-    justify-content: space-between;
+    flex: 1 1 0px;
+    margin: 3px 3px 0 3px;
 }
 
 .mover-container {

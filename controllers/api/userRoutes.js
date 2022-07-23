@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Client, Mover, Move } = require('../../models');
-const { uploadFile } = require('../../imageupload');
+// const { uploadFile } = require('../../imageupload');
 
 router.post('/signupclient', async (req, res) => {
   try {

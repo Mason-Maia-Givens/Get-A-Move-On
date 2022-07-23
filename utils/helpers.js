@@ -11,5 +11,14 @@ module.exports = {
 
     dateFormat: (date) => {
         return date.toLocaleDateString();
+    },
+
+    presentBool: (bool) => {
+        if (bool === true) {
+            return "Yes"
+        }
+        if (bool === false) {
+            return "No"
+        }
     }
 }

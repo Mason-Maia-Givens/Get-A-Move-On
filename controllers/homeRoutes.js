@@ -68,6 +68,7 @@ router.get('/dashboard', async (req, res) => {
           currClient,
           moveStatus,
           allMovers,
+          logged_in: true
         });
       } else {
         // Find confirmed Move
@@ -84,6 +85,7 @@ router.get('/dashboard', async (req, res) => {
           currClient,
           confirmedClientMove,
           moverMove,
+          logged_in: true
         });
       }
     }
@@ -128,7 +130,8 @@ router.get('/dashboard', async (req, res) => {
       res.render('moverdash', {
         confirmedMoves,
         pendingMoves,
-        completedMoves
+        completedMoves,
+        logged_in: true
       });
     }
     else {
